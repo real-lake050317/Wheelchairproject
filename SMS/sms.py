@@ -10,7 +10,6 @@ import base64
 import requests
 import time
 import json
-
 import keys
 
 # https://api.ncloud-docs.com/docs/ko/ai-application-service-sens-smsv2#api-header
@@ -26,7 +25,7 @@ def	make_signature(uri): #POST
 
 def send(): #POST
 	message_type=input("Message type-sms/lms/mms ?")
-	message_to=input("to whom?")
+	message_to=input("to whSom?")
 	message_content=input("enter message content")
 	url = "https://sens.apigw.ntruss.com"
 	uri="/sms/v2/services/" + keys.service_ID + "/messages"
