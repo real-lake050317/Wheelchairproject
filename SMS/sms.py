@@ -1,6 +1,6 @@
 # SMS API using Naver Opencloud
 # Hyunmin Lee
-# 21.10.26 rev 1
+# 21.10.26 v0.0.1
 
 import sys
 import os
