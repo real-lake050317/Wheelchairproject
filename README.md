@@ -1,5 +1,3 @@
-# Wheelchairproject
-
 Korean Minjok Leadership Academy <br> 2022-1 Integrated project Jinho Kim, Seunghyun Park, Hyunmin Lee, Donggeon Kim
 
 ## What We Do
@@ -11,7 +9,7 @@ We make wheelchairs for disabled people.<br>
   + Speaking via text-to-speech technology
   + Sending SMS
   + Map
----
+
 ## What we use
 
 #### Programming Languages We Use
@@ -30,7 +28,8 @@ We make wheelchairs for disabled people.<br>
 + **Tkinter** Python Library
 + **Mediapipe** Python Library
 + Tobii Eye Tracker
+___
 
-#### This repository will be released in opensoure once the development process is fully finished.
+#### This repository will be released in opensource once the development process is fully finished.
 #### This repository and project will be published in ISEF (International Science Engineering Fair), on 2022. (expected)
-#### Once this repository is released via opensource, all of the codes and schematics, etc., will be protected by BSD (Berkeley Software Distribution Licence).
+#### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD (Berkeley Software Distribution Licence).
