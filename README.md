@@ -1,4 +1,5 @@
-Korean Minjok Leadership Academy <br> 2022-1 Integrated project Jinho Kim, Seunghyun Park, Hyunmin Lee, Donggeon Kim
+# The Wheelchair project - the new body of disabled
+#### Korean Minjok Leadership Academy 2022-1 Integrated project member,<br><br> Jinho Kim, Seunghyun Park, Hyunmin Lee, Donggeon Kim <br>
 
 ## What We Do
 We make wheelchairs for disabled people.<br>
