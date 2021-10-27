@@ -33,4 +33,4 @@ ___
 
 #### This repository will be released in opensource once the development process is fully finished.
 #### This repository and project will be published in ISEF (International Science Engineering Fair), on 2022. (expected)
-#### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD (Berkeley Software Distribution Licence).
+#### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD 2-Clause "Simplified" License.
