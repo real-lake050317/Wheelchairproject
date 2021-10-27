@@ -1,4 +1,4 @@
-# The Wheelchair project - the new body of disabled
+# The Wheelchair project - The new body of disabled
 #### Korean Minjok Leadership Academy 2022-1 Integrated project member,<br><br> Jinho Kim, Seunghyun Park, Hyunmin Lee, Donggeon Kim <br>
 
 ## What We Do
