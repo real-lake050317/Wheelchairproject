@@ -1,5 +1,6 @@
 # The Wheelchair project - The new body of the disabled
 #### Korean Minjok Leadership Academy 2022-1 Integrated project member,<br><br> Jinho Kim, Seunghyun Park, Hyunmin Lee, Donggeon Kim <br>
+Since Oct. 2021
 
 ## What We Do
 We make wheelchairs for disabled people.<br>
