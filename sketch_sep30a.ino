@@ -9,18 +9,19 @@ void setup() {
   pinMode(leftdc, OUTPUT);
   pinMode(sensor, INPUT);
 }
-
+/*
 void set_speed(){
   speed = analogRead(A0)/"""X"""; //아날로그값 리드, 범위에 맞게 속도로 조절
   analogWrite(leftdc, speed);
   analogWrite(rightdc, speed);
-
 }
+*/
 
 void loop(){
-  int control = 0;
-  int temp;
-  set_speed();
+  //int control = 0;
+  //int temp;
+  //set_speed();
+  /*
   if (Serial.available()){
     temp = control;
     control = Serial.read();
@@ -28,6 +29,10 @@ void loop(){
   if (control == temp){
     continue;
   }
+  */
+  if (1 == 0){ //temporary code, needs to be deleted
+    Serial.println("Hello World!"); // 임시코드
+  } //temporary code, needs to be deleted
   else{
     //시리얼 통신 -> CV 리딩값 전달, 기존값과 비교 먼저 -> 안하면 모터 깔짝깔짝
     int a = analogRead(A0)/"""x""" //아날로그값을 리딩 + 적절하게 범위에 맞게 조정
