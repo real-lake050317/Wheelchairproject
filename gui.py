@@ -1,6 +1,6 @@
 import tkinter
 from tkinter import messagebox
-
+from tkinter import END
 window = tkinter.Tk()
 window.title("wheelchair project")
 window.configure(bg= '#FFFAFA')
@@ -12,19 +12,23 @@ def createNewWindow1():
     newWindow = tkinter.Toplevel(window)
     labelExample = tkinter.Label(newWindow, text="map")
     labelExample.pack()
+    newWindow.attributes('-fullscreen', True)
+    exit_button = tkinter.Button(newWindow, text = "exit", command = newWindow.destroy)
+    exit_button.place(relx = 0.45, rely = 0.95, relwidth = 0.1, relheight = 0.05)
+"""
+#종료버튼 있는 전체화면 창
     width = window.winfo_screenwidth()
     height = window.winfo_screenheight()
     newWindow.geometry("%dx%d" % (width, height))
-
-
+"""
 # work에 대한 toplevel 생성함수
 def createNewWindow2():
     newWindow = tkinter.Toplevel(window)
     labelExample = tkinter.Label(newWindow, text="work")
     labelExample.pack()
-    width = window.winfo_screenwidth()
-    height = window.winfo_screenheight()
-    newWindow.geometry("%dx%d" % (width, height))
+    newWindow.attributes('-fullscreen', True)
+    exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
+    exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
 
 # info에 대한 toplevel 생성함수
@@ -32,9 +36,9 @@ def createNewWindow3():
     newWindow = tkinter.Toplevel(window)
     labelExample = tkinter.Label(newWindow, text="info")
     labelExample.pack()
-    width = window.winfo_screenwidth()
-    height = window.winfo_screenheight()
-    newWindow.geometry("%dx%d" % (width, height))
+    newWindow.attributes('-fullscreen', True)
+    exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
+    exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
 
 # 버튼생성
@@ -126,29 +130,33 @@ listbox = tkinter.Listbox(window, selectmode='single', height=0)
 messages = ['지금가요', '학교에요', '집이에요', '바빠요']
 for i in range(len(messages)):
     listbox.insert(i, messages[i])
-listbox.place(relx=0.745, rely=0.15, relwidth=0.1)
+listbox.place(relx=0.745, rely=0.15, relwidth = 0.1)
 
 
 # 리스트 박스 데이터 추가
 def add(event):
     global messages
-    messages.append(entry.get())
-    listbox.insert(len(messages), entry.get())
-    entry.delete(0, 'end')
-
+    if len(messages) <= 10:
+        messages.append(entry.get())
+        listbox.insert(len(messages), entry.get())
+        entry.delete(0, 'end')
+    else:
+        messagebox.showwarning("경고", "한도를 초과하였습니다")
 
 # 리스트 박스 데이터 삭제
 def delete():
     global messages
-    selection = listbox.curselection()
-    if (len(selection) == 0):
-        return
-    value = listbox.get(selection[0])
-    ind = messages.index(value)
-    del messages[ind]
-    listbox.delete(selection[0])
-    print(messages)
-
+    if len(messages) > 0:
+        selection = listbox.curselection()
+        if (len(selection) == 0):
+            return
+        value = listbox.get(selection[0])
+        ind = messages.index(value)
+        del messages[ind]
+        listbox.delete(selection[0])
+        print(messages)
+    else:
+        messagebox.showwarning("경고", "한도를 초과하였습니다")
 
 # 삭제버튼
 buttonDel = tkinter.Button(window, text="선택항목 삭제", overrelief="solid", command=delete)
@@ -157,4 +165,15 @@ buttonDel.place(relx=0.745, rely=0.09, relwidth=0.1, relheight=0.03)
 entry = tkinter.Entry(window)
 entry.bind("<Return>", add)
 entry.place(relx=0.745, rely=0.117, relwidth=0.1, relheight=0.03)
+
+#리스트 박스 저장 함수, 버튼
+def save():
+    with open('listbox.txt', 'w') as f:
+        f.write(', '.join(listbox.get(0, END)))
+        f.close()
+
+buttonsave = tkinter.Button(window, text="save", overrelief="solid", command=save)
+buttonsave.place(relx=0.745, rely = 0.3, relwidth = 0.1, relheight = 0.1)
+
+
 window.mainloop()
