@@ -14,29 +14,17 @@ void setup(){
 void loop(){
     if (Serial.available()){
         control = Serial.read();
-        if (control == "0"){
-            digitalWrite(in1, HIGH);
-            digitalWrite(in2, LOW);
-            digitalWrite(in3, HIGH);
-            digitalWrite(in4, LOW);
+        if (control == "go left"){
+            Serial.println("left");
         }
-        else if (control == "1"){
-            digitalWrite(in1, HIGH);
-            digitalWrite(in2, LOW);
-            digitalWrite(in3, LOW);
-            digitalWrite(in4, HIGH);
+        else if (control == "go backward"){
+            Serial.println("backward");
         }
-        else if (control == "2"){
-            digitalWrite(in1, LOW);
-            digitalWrite(in2, HIGH);
-            digitalWrite(in3, HIGH);
-            digitalWrite(in4, LOW);
+        else if (control == "go straight"){
+            Serial.println("front");
         }
-        else if (control == "3"){
-            digitalWrite(in1, LOW);
-            digitalWrite(in2, HIGH);
-            digitalWrite(in3, LOW);
-            digitalWrite(in4, HIGH);
+        else if (control == "go right"){
+            Serial.println("right");
         }
     }
 }
