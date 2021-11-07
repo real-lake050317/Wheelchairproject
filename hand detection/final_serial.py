@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import serial
-ser = serial.Serial("3", 9600)
+ser = serial.Serial("COM3", 19200)
 
 #04:03:20
 
@@ -40,7 +40,7 @@ class handDetector():
                 # print(id, cx, cy)
                 lmList.append([id, cx, cy])
                 if draw:
-                    cv2.circle(img, (cx, cy), 13, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (cx, cy), 7, (255, 0, 255), cv2.FILLED)
 
         return lmList
 
@@ -80,33 +80,32 @@ def main():
             #print(fingers)
             
             if fingers == [0,0,0,0,0]: 
-                command = "stop"
+                command = "n"#"stop"
                 temp = command.encode("utf-8")
                 ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
-                command = "go straight"
+                command = "s"#"go straight"
                 temp = command.encode("utf-8")
                 ser.write(temp) 
 
             elif fingers == [0,1,1,0,0]: 
-                command = "go backward"
+                command = "b"#"go backward"
                 temp = command.encode("utf-8")
                 ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
-                command = "go left"
+                command = "l"#"go left"
                 temp = command.encode("utf-8")
                 ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
-                command = "go right"
+                command = "r"#"go right"
                 temp = command.encode("utf-8")
                 ser.write(temp)
             
             #totalFingers = fingers.count(1) 펴진 손가락 총 개수 세기(필요 없음)
             #print(totalFingers)
-
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
