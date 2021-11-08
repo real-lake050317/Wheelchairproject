@@ -24,10 +24,7 @@ def	make_signature(uri): #POST
 	signingKey = base64.b64encode(hmac.new(secret_key, msg=message, digestmod=hashlib.sha256).digest()).decode()
 	return signingKey
 
-def send(): #POST
-	message_type=input("Message type-sms/lms/mms ?")
-	message_to=input("to whom?")
-	message_content=input("enter message content")
+def send(message_to,message_content): #POST
 	url = "https://sens.apigw.ntruss.com"
 	uri="/sms/v2/services/" + keys.service_ID + "/messages"
 	send_url=url+uri
@@ -38,7 +35,7 @@ def send(): #POST
 		   'x-ncp-apigw-signature-v2':make_signature(uri)
 		  	  }
 	body={
-    "type":message_type,
+    "type":'sms',
     "from":keys.mynumber,
 	"content":"연락 바랍니다",
     "messages":[
@@ -51,4 +48,5 @@ def send(): #POST
 	body=json.dumps(body)
 	response_send=requests.post(send_url,headers=headers,data=body)
 	print(response_send.text)
-send()
+
+send("01071264960","hello")
