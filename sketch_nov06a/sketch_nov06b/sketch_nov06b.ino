@@ -1,10 +1,9 @@
-char receivedChar;
+ char receivedChar;
 boolean newData = false;
 const int in1 = 11;
 const int in2 = 10;
 const int in3 = 9;
 const int in4 = 6;
-const int in5 = 5;
 
 void setup() {
     Serial.begin(19200);
@@ -12,7 +11,6 @@ void setup() {
     pinMode(in2, OUTPUT);
     pinMode(in3, OUTPUT);
     pinMode(in4, OUTPUT);
-    pinMode(in5, OUTPUT);
 }
 
 void recvOneChar() {
@@ -23,29 +21,67 @@ void recvOneChar() {
     }
 }
 
+void motor_one_forward(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+}
+
+void motor_one_backward(){
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+}
+
+void motor_one_stop(){
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, HIGH);
+}
+
+void motor_two_forward(){
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+}
+
+void motor_two_backward(){
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+}
+
+void motor_two_stop(){
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, HIGH);
+}
+
 void loop() {
     receivedChar = 'a';
     recvOneChar();
     if (newData == true){
       if (receivedChar == 's'){
-        digitalWrite(in1, HIGH);
+        motor_one_forward();
+        motor_two_forward();
         delay(10);
-        digitalWrite(in1, LOW);
+        motor_one_stop();
+        motor_two_stop();
       }
       else if (receivedChar == 'b'){
-        digitalWrite(in2, HIGH);
+        motor_one_backward();
+        motor_two_backward();
         delay(10);
-        digitalWrite(in2, LOW);
+        motor_one_stop();
+        motor_two_stop();
       }
       else if (receivedChar == 'l'){
-        digitalWrite(in3, HIGH);
+        motor_one_backward();
+        motor_two_forward();
         delay(10);
-        digitalWrite(in3, LOW);
+        motor_one_stop();
+        motosr_two_stop();
       }
       else if (receivedChar == 'r'){
-        digitalWrite(in4, HIGH);
+        motor_one_forward();
+        motor_one_backward();
         delay(10);
-        digitalWrite(in4, LOW);
+        motor_one_stop();
+        motor_two_stop();
       }
     }
 }
