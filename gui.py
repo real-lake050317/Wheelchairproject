@@ -201,10 +201,17 @@ buttonsave = tkinter.Button(window, text="save", overrelief="solid", command=sav
 buttonsave.place(relx=0.85, rely=0.09, relwidth=0.045, relheight=0.06)
 
 
+#메시지 SEND(by hmin3737)
+def send():
+    #messagebox.showinfo(list(cl.values())[0])
+    for i in listbox.curselection():
+        smssend(list(cl.values())[0],messages[i])
+
 #메세지 send버튼
 
-send = tkinter.Button(window, text="send", overrelief = "solid")
+send = tkinter.Button(window, text="send", overrelief = "solid", command=send)
 send.place(relx = 0.7, rely = 0.5, relwidth=0.1)
+
 
 #메세지 send entry
 
