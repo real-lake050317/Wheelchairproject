@@ -133,10 +133,11 @@ buttondeselectall = tkinter.Button(window, text="전체취소", overrelief="soli
 buttondeselectall.place(relx=0.61, rely=0.2, relwidth=0.1)
 
 # 리스트 박스 생성(txt 에 아무것도 없으면 기본, 있으면 그걸로 실행)
+"""
 with open('listbox.txt', 'w') as f:
     f.write('')
     f.close()
-
+"""
 with open("listbox.txt") as f:
     mylist = f.read().splitlines()
     if mylist == []:
@@ -201,17 +202,10 @@ buttonsave = tkinter.Button(window, text="save", overrelief="solid", command=sav
 buttonsave.place(relx=0.85, rely=0.09, relwidth=0.045, relheight=0.06)
 
 
-#메시지 SEND(by hmin3737)
-def send():
-    #messagebox.showinfo(list(cl.values())[0])
-    for i in listbox.curselection():
-        smssend(list(cl.values())[0],messages[i])
-
 #메세지 send버튼
 
-send = tkinter.Button(window, text="send", overrelief = "solid", command=send)
+send = tkinter.Button(window, text="send", overrelief = "solid")
 send.place(relx = 0.7, rely = 0.5, relwidth=0.1)
-
 
 #메세지 send entry
 

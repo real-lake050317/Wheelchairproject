@@ -14,7 +14,7 @@ headers={
         'Content-Type':'application/xml',
         'Authorization':'KakaoAK '+key
         }
-predata=input("문장을 입력하시오")
+predata=input("문장을 입력하시오 \n")
 data="<speak>"+predata+"</speak>"
 data=data.encode('utf-8').decode('latin1')
 
