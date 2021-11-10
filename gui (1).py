@@ -1,7 +1,7 @@
 import tkinter
 from tkinter import messagebox
 from tkinter import END
-
+#메세지 import
 import sys
 import os
 import hashlib
@@ -11,6 +11,13 @@ import requests
 import time
 import json
 import keys
+#TTS import
+import os
+import requests
+import json
+import wave
+import keys_TTS
+
 
 window = tkinter.Tk()
 window.title("wheelchair project")
@@ -35,13 +42,18 @@ def createNewWindow1():
     newWindow.geometry("%dx%d" % (width, height))
 """
 
-
+a = 0
 # work 에 대한 toplevel 생성함수
 def createNewWindow2():
     newWindow = tkinter.Toplevel(window)
-    labelExample = tkinter.Label(newWindow, text="work")
+    labelExample = tkinter.Label(newWindow, text="TTS")
     labelExample.pack()
     newWindow.attributes('-fullscreen', True)
+    entry3 = tkinter.Entry(newWindow)
+    entry3.bind("<Return>", make_TTS)
+    entry3.place(relx=0.2, rely=0.2, relwidth=0.6, relheight=0.6)
+    global a
+    a = entry3.get()
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
@@ -58,7 +70,7 @@ def createNewWindow3():
 
 # 버튼생성
 b1 = tkinter.Button(window, text="map", command=createNewWindow1)
-b2 = tkinter.Button(window, text="work", command=createNewWindow2)
+b2 = tkinter.Button(window, text="TTS", command=createNewWindow2)
 b3 = tkinter.Button(window, text="info", command=createNewWindow3)
 # 버튼 위치
 b1.place(relwidth=0.5, relheight=0.25, relx=0.05, rely=0.05)
@@ -68,7 +80,7 @@ b3.place(relwidth=0.5, relheight=0.25, relx=0.05, rely=0.7)
 label_frame4 = tkinter.LabelFrame(window, text="sms", relief="solid", bd=2)
 label_frame4.place(relwidth=0.3, relheight=0.9, relx=0.6, rely=0.05)
 
-# 어떤 체크버튼이 눌렸는지 확인하고 cl리스트(전화번호딕셔너리)에 집어넣기
+# 어떤 체크버 눌렸는지 확인하고 cl리스트(전화번호딕셔너리)에 집어넣기
 cl = {}
 
 
@@ -80,8 +92,7 @@ def send_to():
         if 'mom' in cl:
             pass
         else:
-            cl['mom'] = '01099666503'
-
+            cl['mom'] = '01076586250'
     else:
         if 'mom' in cl:
             del cl['mom']
@@ -120,16 +131,16 @@ CheckVariety_1 = tkinter.IntVar()
 CheckVariety_2 = tkinter.IntVar()
 CheckVariety_3 = tkinter.IntVar()
 # 체크버튼 생성함수
-checkbutton1 = tkinter.Checkbutton(window, text="mom", variable=CheckVariety_1)
-checkbutton2 = tkinter.Checkbutton(window, text="dad", variable=CheckVariety_2)
-checkbutton3 = tkinter.Checkbutton(window, text="friend1", variable=CheckVariety_3)
-checkbutton1.place(relx=0.61, rely=0.1, relwidth=0.1)
-checkbutton2.place(relx=0.61, rely=0.13, relwidth=0.1)
-checkbutton3.place(relx=0.61, rely=0.16, relwidth=0.1)
+checkbutton1 = tkinter.Checkbutton(window, text="mom", variable=CheckVariety_1, cursor = "plus", background = "gray")
+checkbutton2 = tkinter.Checkbutton(window, text="dad", variable=CheckVariety_2, cursor = "plus", background = "gray")
+checkbutton3 = tkinter.Checkbutton(window, text="friend1", variable=CheckVariety_3, cursor = "plus", background = "gray")
+checkbutton1.place(relx=0.61, rely=0.07, relwidth=0.1, relheight = 0.05)
+checkbutton2.place(relx=0.61, rely=0.13, relwidth=0.1, relheight = 0.05)
+checkbutton3.place(relx=0.61, rely=0.19, relwidth=0.1, relheight = 0.05)
 
 # 어떤 체크박스를 클맀했는지 확인
-action = tkinter.Button(window, text="click me", command=send_to)
-action.place(relx=0.61, rely=0.07, relwidth=0.1)
+action = tkinter.Button(window, text="선택", command=send_to)
+action.place(relx=0.61, rely=0.25, relwidth=0.1, relheight = 0.07)
 
 
 # 전체 체크버튼 취소함수
@@ -140,7 +151,7 @@ def deselectall():
 
 
 buttondeselectall = tkinter.Button(window, text="전체취소", overrelief="solid", command=deselectall)
-buttondeselectall.place(relx=0.61, rely=0.2, relwidth=0.1)
+buttondeselectall.place(relx=0.61, rely=0.33, relwidth=0.1, relheight = 0.07)
 
 # 리스트 박스 생성(txt 에 아무것도 없으면 기본, 있으면 그걸로 실행)
 
@@ -158,7 +169,7 @@ with open("listbox.txt") as f:
 listbox = tkinter.Listbox(window, selectmode='single', height=0)
 for i in range(len(messages)):
     listbox.insert(i, messages[i])
-listbox.place(relx=0.745, rely=0.15, relwidth=0.1)
+listbox.place(relx=0.745, rely=0.23, relwidth=0.1)
 
 
 # 리스트 박스 데이터 추가
@@ -191,12 +202,12 @@ def delete():
 
 # 삭제버튼
 buttonDel = tkinter.Button(window, text="선택항목 삭제", overrelief="solid", command=delete)
-buttonDel.place(relx=0.745, rely=0.09, relwidth=0.1, relheight=0.03)
+buttonDel.place(relx=0.745, rely=0.07, relwidth=0.1, relheight=0.07)
 
 # 리스트 박스 추가용 entry 생성
 entry = tkinter.Entry(window)
 entry.bind("<Return>", add)
-entry.place(relx=0.745, rely=0.117, relwidth=0.1, relheight=0.03)
+entry.place(relx=0.745, rely=0.15, relwidth=0.1, relheight=0.07)
 
 
 # 리스트 박스 저장 함수, 버튼
@@ -209,7 +220,7 @@ def save():
 
 
 buttonsave = tkinter.Button(window, text="save", overrelief="solid", command=save)
-buttonsave.place(relx=0.85, rely=0.09, relwidth=0.045, relheight=0.06)
+buttonsave.place(relx=0.85, rely=0.07, relwidth=0.045, relheight=0.15)
 
 
 # 메세지 send entry
@@ -221,11 +232,10 @@ def set_text():
 
 
 entry2 = tkinter.Entry(window)
-# entry.bind("<return>", send_messages) --> 메세지 송신 함수를 만든후 추가
-entry2.place(relx=0.625, rely=0.7, relwidth=0.25, relheight=0.2)
+entry2.place(relx=0.62, rely=0.75, relwidth=0.26, relheight=0.1)
 
 buttontext = tkinter.Button(window, text="입력", command=set_text)
-buttontext.place(relx=0.65, rely=0.9, relwidth=0.1)
+buttontext.place(relx=0.62, rely=0.86, relwidth=0.1, relheight = 0.07)
 
 
 # sms 함수
@@ -256,14 +266,14 @@ def smssend(message_to, message_content):  # POST
                'x-ncp-iam-access-key': keys.access_key,
                'x-ncp-apigw-signature-v2': make_signature(uri)
                }
-    body={
-        "type" : 'sms',
-        "from" : keys.mynumber,
-        "content" : "연락 바랍니다",
-        "messages":[
+    body = {
+        "type": 'sms',
+        "from": keys.mynumber,
+        "content": "연락 바랍니다",
+        "messages": [
             {
-                "to":message_to,
-                "content":message_content
+                "to": message_to,
+                "content": message_content
             }
         ]
     }
@@ -271,11 +281,36 @@ def smssend(message_to, message_content):  # POST
     response_send = requests.post(send_url, headers=headers, data=body)
     print(response_send.text)
 
+
 def send_message():
     for i in cl:
         smssend(cl[i], entry2.get())
 
+
 sendbutton = tkinter.Button(window, text="보내기", command=send_message)
-sendbutton.place(relx=0.78, rely=0.9, relwidth=0.1)
+sendbutton.place(relx=0.78, rely=0.86, relwidth=0.1, relheight = 0.07)
+
+#TTS api
+
+# TTS api using Kakao API
+# Hyunmin Lee
+# 21.10.26 v0.0.1
+
+def make_TTS(event):
+    url="https://kakaoi-newtone-openapi.kakao.com/v1/synthesize"
+    key=keys_TTS.REST_API_key
+    headers={
+            'Content-Type':'application/xml',
+            'Authorization':'KakaoAK '+key
+            }
+    global a
+    data="<speak>"+a+"</speak>"
+    data=data.encode('utf-8').decode('latin1')
+    res=requests.post(url,headers=headers,data=data)
+    f=open('temp.wav', 'wb')
+    f.write(res.content)
+    f.close()
+
+
 
 window.mainloop()
