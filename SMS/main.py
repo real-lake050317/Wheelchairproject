@@ -28,7 +28,7 @@ def smssend(message_to,message_content): #POST
 	uri="/sms/v2/services/" + keys.service_ID + "/messages"
 	send_url=url+uri
 	timestamp = str(int(time.time() * 1000))
-	headers = {'Content-ssage_to=Type': 'application/json; charset=utf-8',
+	headers = {'Content-Type': 'application/json; charset=utf-8',
 		   'x-ncp-apigw-timestamp':timestamp,
 		   'x-ncp-iam-access-key':keys.access_key,
 		   'x-ncp-apigw-signature-v2':make_signature(uri)
@@ -48,4 +48,4 @@ def smssend(message_to,message_content): #POST
 	response_send=requests.post(send_url,headers=headers,data=body)
 	print(response_send.text)
 
-smssend("01071264960","hello")
+smssend("01087334960","김씨")

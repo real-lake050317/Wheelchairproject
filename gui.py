@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox
 from tkinter import END
+from SMS import main
 
 window = tkinter.Tk()
 window.title("wheelchair project")
@@ -70,7 +71,7 @@ def send_to():
         if 'mom' in cl:
             pass
         else:
-            cl['mom'] = '010-0000-0000'
+            cl['mom'] = '01099666503'
 
     else:
         if 'mom' in cl:
@@ -205,7 +206,7 @@ buttonsave.place(relx=0.85, rely=0.09, relwidth=0.045, relheight=0.06)
 def send():
     #messagebox.showinfo(list(cl.values())[0])
     for i in listbox.curselection():
-        smssend(list(cl.values())[0],messages[i])
+        main.smssend(list(cl.values())[0],messages[i])
 
 #메세지 send버튼
 
