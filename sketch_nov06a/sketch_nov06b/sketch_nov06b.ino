@@ -74,7 +74,7 @@ void loop() {
         motor_two_forward();
         delay(10);
         motor_one_stop();
-        motosr_two_stop();
+        motor_two_stop();
       }
       else if (receivedChar == 'r'){
         motor_one_forward();
