@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox
 from tkinter import END
+from SMS import main
 
 import sys
 import os
