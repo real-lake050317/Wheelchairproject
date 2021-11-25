@@ -18,7 +18,6 @@ We make wheelchairs for disabled people.<br>
 + Python
 + C++ (Arduino)
 + Typescript
-+ Lua
 
 #### Technologies We Use
 + Arduino Circuits
