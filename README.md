@@ -31,6 +31,6 @@ We make wheelchairs for disabled people.<br>
 + Tobii Eye Tracker
 ___
 
-#### To help the disabled with our best, This repository will be released in opensource once the development process is fully finished.
-#### This repository and project will be published on KSEF (Korea Science Engineering Fair) on 2021, and ISEF (International Science Engineering Fair), on 2022. (expected)
+#### To help the disabled with our best, This repository is fully opened by open source.
+#### This repository and project is published on KSEF (Korea Science Engineering Fair) 2021.
 #### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD 2-Clause "Simplified" License.
