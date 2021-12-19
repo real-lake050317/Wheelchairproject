@@ -1,4 +1,4 @@
-import cv2
+dimport cv2
 import mediapipe as mp
 import time
 
@@ -69,7 +69,6 @@ def main():
                     fingers.append(1)
                 else:
                     fingers.append(0)
-            
             print(fingers)
             '''
             if fingers == [0,0,0,0,0]: stop()

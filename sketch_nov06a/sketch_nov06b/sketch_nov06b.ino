@@ -1,4 +1,4 @@
- char receivedChar;
+char receivedChar;
 boolean newData = false;
 const int in1 = 11;
 const int in2 = 10;
