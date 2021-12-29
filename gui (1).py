@@ -12,9 +12,9 @@ import time
 import json
 import keys
 #TTS import
-import os
-import requests
-import json
+#import os
+#import requests
+#import json
 import wave
 import keys_TTS
 
