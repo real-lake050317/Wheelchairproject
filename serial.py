@@ -3,6 +3,9 @@ import time
 ser = serial.Serial('COM번호', 9600)
 
 while True:
+    
+    
+    
 	int command
 	if ****CONDITION to move forward**** :
 		command = "0"
