@@ -12,17 +12,15 @@ import time
 import json
 import keys
 #TTS import
-#import os
-#import requests
-#import json
 import wave
 import keys_TTS
+
+import os.path
 
 
 window = tkinter.Tk()
 window.title("wheelchair project")
-window.configure(bg='#FFFAFA')
-#window.attributes('-fullscreen', True)
+window.attributes('-fullscreen', True)
 
 
 # map 에 대한 toplevel 생성함수
@@ -31,6 +29,11 @@ def createNewWindow1():
     labelExample = tkinter.Label(newWindow, text="map")
     labelExample.pack()
     newWindow.attributes('-fullscreen', True)
+    def send_message2():
+        for i in cl:
+            smssend(cl[i], "강원도 횡성군 안흥면")
+    location = tkinter.Button(newWindow, text = "위치전송", command=send_message2)
+    location.place(relx = 0.45, rely = 0.45, relwidth = 0.1, relheight = 0.1)
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
@@ -54,6 +57,8 @@ def createNewWindow2():
     entry3.place(relx=0.2, rely=0.2, relwidth=0.6, relheight=0.6)
     global a
     a = entry3.get()
+    speakbutton = tkinter.Button(newWindow, text="재생")
+    speakbutton.place(relx = 0.8, rely = 0.5, relwidth = 0.1, relheight = 0.1)
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
@@ -92,7 +97,7 @@ def send_to():
         if 'mom' in cl:
             pass
         else:
-            cl['mom'] = '01076586250'
+            cl['mom'] = '01099666503'
     else:
         if 'mom' in cl:
             del cl['mom']
@@ -103,7 +108,7 @@ def send_to():
         if 'dad' in cl:
             pass
         else:
-            cl['dad'] = '01073631937'
+            cl['dad'] = '01057727898'
     else:
         if 'dad' in cl:
             del cl['dad']
@@ -154,17 +159,15 @@ buttondeselectall = tkinter.Button(window, text="전체취소", overrelief="soli
 buttondeselectall.place(relx=0.61, rely=0.33, relwidth=0.1, relheight = 0.07)
 
 # 리스트 박스 생성(txt 에 아무것도 없으면 기본, 있으면 그걸로 실행)
-
-# with open('listbox.txt', 'w') as f:
-#    f.write('')
-#    f.close()
-
-with open("listbox.txt") as f:
-    mylist = f.read().splitlines()
-    if mylist == []:
-        messages = ['지금가요', '학교에요', '집이에요', '바빠요']
-    else:
-        messages = mylist
+if os.path.isfile('listbox.txt') == True:
+    with open("listbox.txt") as f:
+        mylist = f.read().splitlines()
+        if mylist == []:
+            messages = ['지금가요', '학교에요', '집이에요', '바빠요']
+        else:
+           messages = mylist
+else:
+    messages = ['지금가요', '학교에요', '집이에요', '바빠요']
 
 listbox = tkinter.Listbox(window, selectmode='single', height=0)
 for i in range(len(messages)):
@@ -304,13 +307,20 @@ def make_TTS(event):
             'Authorization':'KakaoAK '+key
             }
     global a
-    data="<speak>"+a+"</speak>"
+    data="<speak>"+"a"+"</speak>"
     data=data.encode('utf-8').decode('latin1')
     res=requests.post(url,headers=headers,data=data)
     f=open('temp.wav', 'wb')
     f.write(res.content)
     f.close()
+"""
+from playsound import playsound
+def speak():
+    if os.path.isfile('temp.wav') == True:
+        playsound("temp.wav")
+    else:
+        messagebox.showwarning("경고", "먼저 텍스트를 입력해주세요")
+"""
 
-
-
+window.configure(bg='#FFFAFA')
 window.mainloop()
