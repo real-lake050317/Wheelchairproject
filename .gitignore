@@ -1,6 +1,7 @@
 SMS/keys.py
 SMS/keys_TTS.py
 TTS/__pycache__/
+TTS/keys.py
 SMS/__pycache__/
 GPS/keys.py
 keys.py
