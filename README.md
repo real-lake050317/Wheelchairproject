@@ -70,6 +70,8 @@ ___
 Open terminal in where you cloned the repository <br>
 type: 
 ```
+$ touch listbox.txt
+
 $ cd Wheelchairproject
   
 $ ./gui.py
