@@ -25,9 +25,12 @@ We make wheelchairs for disabled people.<br>
   + Motordrivers
 + **Naver** Cloud Service APIs:
   + SMS API
+  + GPS API
++ **Kakao** APIs:
   + TTS API
 + **Tkinter** Python Library
 + **Mediapipe** Python Library
++ **Folium** Python Library
 + Tobii Eye Tracker
 ___
 
