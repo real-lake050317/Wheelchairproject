@@ -50,19 +50,18 @@ ___
 Open terminal in where you want to clone the repository <br>
 type: 
 ```
+$ cd Wheelchairproject/hand_detection
   
-  $ cd Wheelchairproject/hand_detection
-  
-  $ ./final_serial.py
+$ ./final_serial.py
 ```
 Then, your Python hand detection program is ready to go.
 Next, you should compile the arduino program to make your hand detection program serial communicate with your wheelchair's motor.
 
 Move to the top Wheelchairproject directory.
 ```
-  $ cd motorcontrol
+$ cd motorcontrol
   
-  $ ./pythonserial.ino
+$ ./pythonserial.ino
 ```
 After all the process, your wheelchair is ready to be controlled only with your hand signs!
 ___
@@ -71,9 +70,9 @@ ___
 Open terminal in where you cloned the repository <br>
 type: 
 ```
-  $ cd Wheelchairproject
+$ cd Wheelchairproject
   
-  $ ./gui.py
+$ ./gui.py
 ```
 Callibrate your Tobii&trade; Eyetracker
 
