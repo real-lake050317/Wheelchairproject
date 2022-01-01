@@ -36,3 +36,47 @@ ___
 #### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD 2-Clause "Simplified" License.
 
 ### How To Build
+___
+#### How to clone this repository
+___
+Open terminal in where you want to clone the repository <br>
+<br>
+<code> $ git clone https://github.com/real-lake050317/Wheelchairproject </code>
+
+
+___
+#### The computer vision program
+___
+Open terminal in where you want to clone the repository <br>
+type: 
+```
+  
+  $ cd Wheelchairproject/hand_detection
+  
+  $ ./final_serial.py
+```
+Then, your Python hand detection program is ready to go.
+Next, you should compile the arduino program to make your hand detection program serial communicate with your wheelchair's motor.
+
+Move to the top Wheelchairproject directory.
+```
+  $ cd motorcontrol
+  
+  $ ./pythonserial.ino
+```
+After all the process, your wheelchair is ready to be controlled only with your hand signs!
+___
+#### The eye tracked communication GUI program
+___
+Open terminal in where you cloned the repository <br>
+type: 
+```
+  $ cd Wheelchairproject
+  
+  $ ./gui.py
+```
+Callibrate your Tobii&trade; Eyetracker
+
+https://help.tobii.com/hc/en-us/articles/213891645-Test-and-recalibrate
+
+After all the process, you're ready to go!
