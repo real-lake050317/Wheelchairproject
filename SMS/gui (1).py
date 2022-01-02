@@ -97,7 +97,7 @@ def send_to():
         if 'mom' in cl:
             pass
         else:
-            cl['mom'] = '01099666503'
+            cl['mom'] = '01090266503'
     else:
         if 'mom' in cl:
             del cl['mom']
