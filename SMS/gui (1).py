@@ -18,7 +18,6 @@ window.title("wheelchair project")
 window.configure(bg='#FFFAFA')
 window.attributes('-fullscreen', True)
 
-
 # map 에 대한 toplevel 생성함수
 def createNewWindow1():
     newWindow = tkinter.Toplevel(window)
