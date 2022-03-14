@@ -28,4 +28,10 @@ body {
   margin-top: 50px;
   height: 80%;
   align-items: center;
+  float: left;
+}
+
+.sms-sender{
+  margin-right: 0;
+  float: right;
 }
