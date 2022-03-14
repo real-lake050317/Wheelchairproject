@@ -16,14 +16,16 @@ body {
   background-size: cover;
 }
 
-.routes {
-  width: 40%;
-  height: 500px;
+.functions {
+  width: 50%;
+  margin: 10px;
+  height: 270px;
   font-size: xx-large;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .buttons-form {
-  text-align: center;
+  margin-top: 50px;
   height: 80%;
+  align-items: center;
 }

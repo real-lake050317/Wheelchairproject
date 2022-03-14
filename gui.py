@@ -11,7 +11,7 @@ import base64
 import requests
 import time
 import json
-import keys
+#import keys
 
 window = tkinter.Tk()
 window.title("wheelchair project")
