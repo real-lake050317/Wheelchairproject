@@ -27,14 +27,12 @@ def createNewWindow1():
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
-
 """
 종료버튼 있는 전체화면 창
     width = window.winfo_screenwidth()
     height = window.winfo_screenheight()
     newWindow.geometry("%dx%d" % (width, height))
 """
-
 
 # work 에 대한 toplevel 생성함수
 def createNewWindow2():
@@ -45,7 +43,6 @@ def createNewWindow2():
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
-
 # info 에 대한 toplevel 생성함수
 def createNewWindow3():
     newWindow = tkinter.Toplevel(window)
@@ -55,22 +52,22 @@ def createNewWindow3():
     exit_button = tkinter.Button(newWindow, text="exit", command=newWindow.destroy)
     exit_button.place(relx=0.45, rely=0.95, relwidth=0.1, relheight=0.05)
 
-
 # 버튼생성
 b1 = tkinter.Button(window, text="map", command=createNewWindow1)
 b2 = tkinter.Button(window, text="work", command=createNewWindow2)
 b3 = tkinter.Button(window, text="info", command=createNewWindow3)
+
 # 버튼 위치
 b1.place(relwidth=0.5, relheight=0.25, relx=0.05, rely=0.05)
 b2.place(relwidth=0.5, relheight=0.25, relx=0.05, rely=0.37)
 b3.place(relwidth=0.5, relheight=0.25, relx=0.05, rely=0.7)
+
 # sms 프레임 생성
 label_frame4 = tkinter.LabelFrame(window, text="sms", relief="solid", bd=2)
 label_frame4.place(relwidth=0.3, relheight=0.9, relx=0.6, rely=0.05)
 
 # 어떤 체크버튼이 눌렸는지 확인하고 cl리스트(전화번호딕셔너리)에 집어넣기
 cl = {}
-
 
 def send_to():
     global cl
@@ -81,12 +78,12 @@ def send_to():
             pass
         else:
             cl['mom'] = '01099666503'
-
     else:
         if 'mom' in cl:
             del cl['mom']
         else:
             pass
+        
     if CheckVariety_2.get() == 1:
         str = str + 'dad clicked, '
         if 'dad' in cl:
@@ -98,6 +95,7 @@ def send_to():
             del cl['dad']
         else:
             pass
+        
     if CheckVariety_3.get() == 1:
         str = str + 'friend1 clicked, '
         if 'friend1' in cl:
@@ -109,16 +107,17 @@ def send_to():
             del cl['friend1']
         else:
             pass
+        
     if str == '':
         str = "nothing was checked"
     messagebox.showinfo("Button Clicked", str)
     print(cl)
 
-
 # 체크버튼 숫자 get
 CheckVariety_1 = tkinter.IntVar()
 CheckVariety_2 = tkinter.IntVar()
 CheckVariety_3 = tkinter.IntVar()
+
 # 체크버튼 생성함수
 checkbutton1 = tkinter.Checkbutton(window, text="mom", variable=CheckVariety_1)
 checkbutton2 = tkinter.Checkbutton(window, text="dad", variable=CheckVariety_2)
@@ -131,13 +130,11 @@ checkbutton3.place(relx=0.61, rely=0.16, relwidth=0.1)
 action = tkinter.Button(window, text="click me", command=send_to)
 action.place(relx=0.61, rely=0.07, relwidth=0.1)
 
-
 # 전체 체크버튼 취소함수
 def deselectall():
     checkbutton1.deselect()
     checkbutton2.deselect()
     checkbutton3.deselect()
-
 
 buttondeselectall = tkinter.Button(window, text="전체취소", overrelief="solid", command=deselectall)
 buttondeselectall.place(relx=0.61, rely=0.2, relwidth=0.1)
@@ -160,7 +157,6 @@ for i in range(len(messages)):
     listbox.insert(i, messages[i])
 listbox.place(relx=0.745, rely=0.15, relwidth=0.1)
 
-
 # 리스트 박스 데이터 추가
 def add(event):
     global messages
@@ -171,7 +167,6 @@ def add(event):
         print(messages)
     else:
         messagebox.showwarning("경고", "한도를 초과하였습니다")
-
 
 # 리스트 박스 데이터 삭제
 def delete():
@@ -188,7 +183,6 @@ def delete():
     else:
         messagebox.showwarning("경고", "한도를 초과하였습니다")
 
-
 # 삭제버튼
 buttonDel = tkinter.Button(window, text="선택항목 삭제", overrelief="solid", command=delete)
 buttonDel.place(relx=0.745, rely=0.09, relwidth=0.1, relheight=0.03)
@@ -198,7 +192,6 @@ entry = tkinter.Entry(window)
 entry.bind("<Return>", add)
 entry.place(relx=0.745, rely=0.117, relwidth=0.1, relheight=0.03)
 
-
 # 리스트 박스 저장 함수, 버튼
 
 def save():
@@ -207,10 +200,8 @@ def save():
         f.close()
     messagebox.showinfo("알림", "저징되었습니다")
 
-
 buttonsave = tkinter.Button(window, text="save", overrelief="solid", command=save)
 buttonsave.place(relx=0.85, rely=0.09, relwidth=0.045, relheight=0.06)
-
 
 # 메세지 send entry
 
@@ -219,7 +210,6 @@ def set_text():
     for i in listbox.curselection():
         entry2.insert(0, messages[i])
 
-
 entry2 = tkinter.Entry(window)
 # entry.bind("<return>", send_messages) --> 메세지 송신 함수를 만든후 추가
 entry2.place(relx=0.625, rely=0.7, relwidth=0.25, relheight=0.2)
@@ -227,13 +217,10 @@ entry2.place(relx=0.625, rely=0.7, relwidth=0.25, relheight=0.2)
 buttontext = tkinter.Button(window, text="입력", command=set_text)
 buttontext.place(relx=0.65, rely=0.9, relwidth=0.1)
 
-
 # sms 함수
 # SMS API using Naver Opencloud
 # Hyunmin Lee
 # 21.10.26 v0.0.1
-
-
 # https://api.ncloud-docs.com/docs/ko/ai-application-service-sens-smsv2#api-header
 
 def make_signature(uri):  # POST
@@ -244,7 +231,6 @@ def make_signature(uri):  # POST
     message = bytes(message, 'UTF-8')
     signingKey = base64.b64encode(hmac.new(secret_key, msg=message, digestmod=hashlib.sha256).digest()).decode()
     return signingKey
-
 
 def smssend(message_to, message_content):  # POST
     url = "https://sens.apigw.ntruss.com"
