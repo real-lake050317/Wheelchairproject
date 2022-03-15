@@ -17,8 +17,10 @@ We make wheelchairs for disabled people.<br>
 #### Languages We Use
 + Python
 + C++ (Arduino)
-+ Javascript/Typescript
-+ HTML/CSS
++ Javascript (jsx, es12)
++ Typescript (tsx)
++ HTML5
++ CSS3
 
 #### Technologies We Use
 + Arduino Circuits
