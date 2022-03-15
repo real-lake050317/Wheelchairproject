@@ -14,23 +14,33 @@ We make wheelchairs for disabled people.<br>
 
 ## What we use
 
-#### Programming Languages We Use
+#### Languages We Use
 + Python
 + C++ (Arduino)
-+ Typescript
++ Javascript/Typescript
++ HTML/CSS
 
 #### Technologies We Use
 + Arduino Circuits
   + 500W/36V DC Motor
   + Motordrivers
-+ **Naver** Cloud Service APIs:
++ Naver Cloud Service APIs:
   + SMS API
   + GPS API
-+ **Kakao** APIs:
++ Kakao APIs:
   + TTS API
-+ **Tkinter** Python Library
-+ **Mediapipe** Python Library
-+ **Folium** Python Library
++ Tkinter Python Library
++ Mediapipe Python Library
++ Folium Python Library
++ Javascript React
++ Typescript React
++ Tailwind framework
++ Bootstrap framework
++ Next.js
++ Django framework
++ MongoDB
++ WebSocket
++ SQL
 + Tobii Eye Tracker
 ___
 
