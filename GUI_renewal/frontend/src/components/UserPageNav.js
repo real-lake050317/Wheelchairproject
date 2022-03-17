@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./UserPageNav.css";
-
 const UserPageNav = () => {
   return (
     <div class="functions-nav">
