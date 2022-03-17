@@ -13,8 +13,9 @@ const Homescreen = () => {
         <NavLink to="/userpage" className="profile-button">
           <button className="routes">사용자</button>
         </NavLink>
-
-        <button className="routes">보호자</button>
+        <NavLink to="/guardianpage" className="profile-button">
+          <button className="routes">보호자</button>
+        </NavLink>
       </div>
     </div>
   );

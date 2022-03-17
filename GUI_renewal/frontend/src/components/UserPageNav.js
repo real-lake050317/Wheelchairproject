@@ -4,7 +4,7 @@ import "./UserPageNav.css";
 
 const UserPageNav = () => {
   return (
-    <div class="buttons-form">
+    <div class="functions-nav">
       <button class="functions">TTS</button>
       <button class="functions">MAP</button>
       <button class="functions">INFO</button>
@@ -12,4 +12,4 @@ const UserPageNav = () => {
   );
 };
 
-export default UserPageNav
+export default UserPageNav;

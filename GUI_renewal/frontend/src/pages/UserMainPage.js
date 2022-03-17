@@ -1,13 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import UserPageNav from '../components/UserPageNav';
+import "./UserMainPage.css";
+import UserPageNav from "../components/UserPageNav";
+import SMSComponent from "../components/SMSComponent";
 
 const UserMainPage = () => {
-    return (
-        <React.Fragment>
-            <UserPageNav />
-        </React.Fragment>
-    );
-}
+  return (
+    <div className="page">
+      
+      <React.Fragment>
+        <UserPageNav />
+        <SMSComponent />
+      </React.Fragment>
+    </div>
+  );
+};
 
 export default UserMainPage;
