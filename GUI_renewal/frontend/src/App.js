@@ -7,18 +7,16 @@ import {
   Switch,
 } from "react-router-dom";
 
-import Homescreen from "./pages/homescreen";
+import Homescreen from "./pages/Homescreen";
+import UserMainPage from "./pages/UserMainPage";
 
 function App() {
   return (
     <Router>
       <main>
         <Switch>
-          <Route exact path="/userhome" component={UserPage} />
-          <Route exact path="/guardianhome" component={Login} />
           <Route exact path="/" component={Homescreen} />
-          <Route exact path="/lectureroom" component={LectureRoom} />
-          <Route component={PageNotFound} />
+          <Route exact path="/userpage" component={UserMainPage} />
         </Switch>
       </main>
     </Router>
