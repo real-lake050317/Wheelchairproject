@@ -4,10 +4,8 @@ const SMSComponent = () => {
   return (
     <div class="sms-sender">
       <div class="contacts">
-        <button class="contact-button">click me</button>
         <div class="contacts">
-          <button class="contact-button">click me</button>
-          <form>
+          <form className="contacts">
             <label>
               <input type="checkbox" name="nb[]" valueF="01" />
               mom
@@ -42,19 +40,6 @@ const SMSComponent = () => {
             <button>입력</button>
             <button>보내기</button>
           </div>
-        </div>
-        <button class="contact-button">전체취소</button>
-      </div>
-      <div class="saved-messages">
-        <button>선택항목 삭제</button>
-        <input type="text"></input>
-        <button>Save</button>
-      </div>
-      <div class="write-message">
-        <textarea></textarea>
-        <div class="messagewrite-buttons">
-          <button>입력</button>
-          <button>보내기</button>
         </div>
       </div>
     </div>

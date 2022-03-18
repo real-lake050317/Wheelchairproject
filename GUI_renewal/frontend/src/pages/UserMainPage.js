@@ -13,6 +13,6 @@ const UserMainPage = () => {
       </React.Fragment>
     </div>
   );
-};
+}
 
 export default UserMainPage;
