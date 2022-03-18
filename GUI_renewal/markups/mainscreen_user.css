@@ -35,4 +35,13 @@ body {
 .sms-sender {
   margin-right: 0;
   float: right;
+  position: absolute
+}
+
+.container {
+  position: relative;
+}
+
+.buttons-form {
+  position: absolute;
 }

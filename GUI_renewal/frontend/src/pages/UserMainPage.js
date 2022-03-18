@@ -7,7 +7,6 @@ import SMSComponent from "../components/SMSComponent";
 const UserMainPage = () => {
   return (
     <div className="page">
-      
       <React.Fragment>
         <UserPageNav />
         <SMSComponent />
