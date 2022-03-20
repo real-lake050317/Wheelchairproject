@@ -1,14 +1,29 @@
-import React from 'react';
+import React from "react";
+import { useSpeechSynthesis } from "react-speech-kit";
 
-import './TTS.css';
+import "./TTS.css";
 
 const TTS = () => {
-    return (
-        <div className="tts-service">
-            <textarea className='tts-textbox' cols ="150" rows="45" />
-            <button className='tts-speak'>SPEAK</button>
-        </div>
-    );
-}
+  const [value, setValue] = React.useState("");
+  const { speak } = useSpeechSynthesis();
+
+  return (
+    <div className="tts-service">
+      <textarea
+        className="tts-textbox"
+        cols="150"
+        rows="45"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <button
+        className="tts-speak"
+        onClick={() => speak({ text: value })}
+      >
+        SPEAK
+      </button>
+    </div>
+  );
+};
 
 export default TTS;
