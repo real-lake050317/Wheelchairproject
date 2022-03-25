@@ -17,7 +17,7 @@ body {
 }
 
 .functions {
-  width: 50%;
+  width: 100%;
   margin: 10px;
   height: 270px;
   font-size: xx-large;
@@ -29,19 +29,11 @@ body {
   height: 80%;
   align-items: center;
   float: left;
-  width: 90%;
+  width: 50%;
 }
 
 .sms-sender {
   margin-right: 0;
   float: right;
-  position: absolute
-}
-
-.container {
   position: relative;
-}
-
-.buttons-form {
-  position: absolute;
 }

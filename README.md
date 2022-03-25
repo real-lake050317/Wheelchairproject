@@ -35,6 +35,7 @@ We make wheelchairs for disabled people.<br>
 + Mediapipe Python Library
 + Folium Python Library
 + Javascript React
+  + @googlemaps/react-wrapper 
 + Typescript React
 + Tailwind framework
 + Bootstrap framework
