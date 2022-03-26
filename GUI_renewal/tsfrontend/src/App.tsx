@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Homescreen />} />
         <Route path="/userpage" element={<UserMainPage />} />
         <Route path="/userpage/tts" element={<TTS />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/userpage/map" element={<Map />} />
         <Route path="/userpage" element={<Chat />} />
       </Routes>
     </Router>

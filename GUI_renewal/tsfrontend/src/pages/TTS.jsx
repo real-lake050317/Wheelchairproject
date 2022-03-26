@@ -6,11 +6,11 @@ import "./TTS.css";
 const TTS = () => {
   const [value, setValue] = React.useState("");
   const { speak } = useSpeechSynthesis();
-
+  
   return (
     <div className="tts-service">
       <textarea
-        className="tts-textbox"
+        className="textbox"
         cols="150"
         rows="45"
         value={value}
