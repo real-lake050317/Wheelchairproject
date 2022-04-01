@@ -48,4 +48,4 @@ def smssend(message_to,message_content): #POST
 	response_send=requests.post(send_url,headers=headers,data=body)
 	print(response_send.text)
 
-smssend("01087334960","김씨")
+smssend("01071264960","김씨")

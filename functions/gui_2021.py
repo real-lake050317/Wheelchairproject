@@ -11,7 +11,8 @@ import base64
 import requests
 import time
 import json
-import keys
+import sms
+import tts
 
 window = tkinter.Tk()
 window.title("wheelchair project")
@@ -217,49 +218,10 @@ entry2.place(relx=0.625, rely=0.7, relwidth=0.25, relheight=0.2)
 buttontext = tkinter.Button(window, text="입력", command=set_text)
 buttontext.place(relx=0.65, rely=0.9, relwidth=0.1)
 
-# sms 함수
-# SMS API using Naver Opencloud
-# Hyunmin Lee
-# 21.10.26 v0.0.1
-# https://api.ncloud-docs.com/docs/ko/ai-application-service-sens-smsv2#api-header
-
-def make_signature(uri):  # POST
-    timestamp = str(int(float(time.time()) * 1000))
-    secret_key = bytes(keys.secret_key, 'UTF-8')
-    access_key = keys.access_key
-    message = "POST " + uri + "\n" + timestamp + "\n" + access_key
-    message = bytes(message, 'UTF-8')
-    signingKey = base64.b64encode(hmac.new(secret_key, msg=message, digestmod=hashlib.sha256).digest()).decode()
-    return signingKey
-
-def smssend(message_to, message_content):  # POST
-    url = "https://sens.apigw.ntruss.com"
-    uri = "/sms/v2/services/" + keys.service_ID + "/messages"
-    send_url = url + uri
-    timestamp = str(int(time.time() * 1000))
-    headers = {'Content-Type': 'application/json; charset=utf-8',
-               'x-ncp-apigw-timestamp': timestamp,
-               'x-ncp-iam-access-key': keys.access_key,
-               'x-ncp-apigw-signature-v2': make_signature(uri)
-               }
-    body={
-        "type" : 'sms',
-        "from" : keys.mynumber,
-        "content" : "연락 바랍니다",
-        "messages":[
-            {
-                "to":message_to,
-                "content":message_content
-            }
-        ]
-    }
-    body = json.dumps(body)
-    response_send = requests.post(send_url, headers=headers, data=body)
-    print(response_send.text)
 
 def send_message():
     for i in cl:
-        smssend(cl[i], entry2.get())
+        sms.smssend(cl[i], entry2.get())
 
 sendbutton = tkinter.Button(window, text="보내기", command=send_message)
 sendbutton.place(relx=0.78, rely=0.9, relwidth=0.1)

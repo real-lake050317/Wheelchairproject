@@ -1,8 +1,2 @@
-SMS/keys.py
-SMS/keys_TTS.py
-TTS/__pycache__/
-TTS/keys.py
-SMS/__pycache__/
-GPS/keys.py
-keys.py
+functions/keys.py
 GUI_renewal/frontend/src/pages/Map.js
