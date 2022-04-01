@@ -7,7 +7,7 @@ service_ID="ncp:sms:kr:274209516310:sms"
 service_key="d5d2400e2cc342a79c4d83d52a353d23"
 mynumber="01071264960"
 
-#KAKAO API
+#KAKAO API (REST)
 REST_API_key = 	"8338ec84841779edfeee0941df057c98"
 
 #GOOGLE KEYS
