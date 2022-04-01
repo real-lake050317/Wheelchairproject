@@ -95,7 +95,7 @@ const Map = () => {
         defaultCenter={location.center}
         defaultZoom={location.zoom}
       >
-        <Marker position={location.center}/>
+        
       </GoogleMapReact>
     </div>
   );
