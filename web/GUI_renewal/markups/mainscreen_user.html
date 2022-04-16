@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mainpage - Wheelchair project</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="mainscreen_user.css">
+</head>
+<body>
+  <div class = "container">
+    <div class="functions-nav">
+      <button class = "functions">TTS</button>
+      <button class = "functions">MAP</button>
+      <button class = "functions">INFO</button>
+    </div>
+    <div class = "sms-sender">
+      <div class = "contacts">
+        <button class = "contact-button">click me</button>
+        <form method="POST">
+          <p><label><input type="checkbox" name="nb[]" value="01">mom</label></p>
+          <p><label><input type="checkbox" name="nb[]" value="02">dad</label></p>
+          <p><label><input type="checkbox" name="nb[]" value="03">friend1</label></p>
+          <p><label><input type="checkbox" name="nb[]" value="04">friend2</label></p>
+          <p><label><input type="checkbox" name="nb[]" value="05">friend3</label></p>
+        </form>
+        <button class = "contact-button">전체취소</button>
+      </div>
+      <div class = "saved-messages">
+        <button>선택항목 삭제</button>
+        <input type = "text">
+        <button>Save</button>
+      </div>
+      <div class = "write-message">
+        <textarea></textarea>
+        <div class = "messagewrite-buttons">
+          <button>입력</button>
+          <button>보내기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
