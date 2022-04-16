@@ -8,9 +8,15 @@ import {
 import { LoadScript } from "@react-google-maps/api";
 import GoogleMapReact from "google-map-react";
 import "./Map.css";
+import markericn from "../assets/markericn.png";
 
-const AnyReactComponent = (text: any) => {
-  return <div>{text}</div>;
+const AnyReactComponent = ({ text }) => {
+  return (
+    <div>
+      <img src={markericn} alt="Notification" className="marker"></img>
+      <label className="marker-label">{text}</label>
+    </div>
+  );
 };
 
 const location = {
@@ -89,13 +95,18 @@ const Map = () => {
       
     </LoadScript>
     */
-    <div style={{ height: "100vh", width: "50%" }}>
+    <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyA66ylL4qgGKmHJUPU67Y80mgzX_EwAjWU" }}
         defaultCenter={location.center}
         defaultZoom={location.zoom}
+        zoomControl="false"
       >
-        
+        <AnyReactComponent
+          lat={location.center.lat}
+          lng={location.center.lng}
+          text="User's Current location"
+        />
       </GoogleMapReact>
     </div>
   );
