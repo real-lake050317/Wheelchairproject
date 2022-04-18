@@ -97,3 +97,10 @@ Callibrate your Tobii&trade; Eyetracker
 https://help.tobii.com/hc/en-us/articles/213891645-Test-and-recalibrate
 
 After all the process, you're ready to go!
+
+___
+### Published Competitions
+* KSEF (Korean Science and Engineering Fair) 2021, Invention Field, Bronze Medal
+* ESE (Expo Sciences Europe) July 2022, Suceava, Romania, Participating as Republic of Korea Rep.
+* KCF (Korea Code Fair) from May 2022
+* Genius Olympiad 2022, Innovation Field
