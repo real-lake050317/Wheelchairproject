@@ -48,7 +48,6 @@ We make wheelchairs for disabled people.<br>
 ___
 
 #### To help the disabled with our best, This repository is fully opened by open source.
-#### This repository and project is published on KSEF (Korea Science Engineering Fair) 2021.
 #### Once this repository is released via opensource, all of the codes and schematics, etc., will be in reach of BSD 2-Clause "Simplified" License.
 
 ### How To Build
