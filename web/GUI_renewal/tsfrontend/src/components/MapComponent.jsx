@@ -7,7 +7,7 @@ import {
 } from "react-google-maps";
 import { LoadScript } from "@react-google-maps/api";
 import GoogleMapReact from "google-map-react";
-import "./Map.css";
+import "./MapComponent.css";
 import markericn from "../assets/markericn.png";
 
 const AnyReactComponent = ({ text }) => {
@@ -97,7 +97,7 @@ const MapComponent = () => {
     */
     <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyA66ylL4qgGKmHJUPU67Y80mgzX_EwAjWU" }}
+        bootstrapURLKeys={{ key: process.env.API_KEY }}
         defaultCenter={location.center}
         defaultZoom={location.zoom}
         zoomControl="false"

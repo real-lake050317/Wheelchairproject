@@ -11,8 +11,8 @@ const TTS = () => {
     <div className="tts-service">
       <textarea
         className="textbox"
-        cols="150"
-        rows="45"
+        cols="100"
+        rows="20"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
