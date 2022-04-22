@@ -1,9 +1,9 @@
 import React from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
-import "./TTS.css";
+import "./TTSComponent.css";
 
-const TTS = () => {
+const TTSComponent = () => {
   const [value, setValue] = React.useState("");
   const { speak } = useSpeechSynthesis();
   
@@ -26,4 +26,4 @@ const TTS = () => {
   );
 };
 
-export default TTS;
+export default TTSComponent;
