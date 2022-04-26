@@ -7,7 +7,7 @@ import './TTSPage.css';
 
 const TTSPage = () => {
   return (
-    <div className='map-page'>
+    <div className='tts-page'>
       <React.Fragment>
         <UserPageExit />
         <TTSComponent />
