@@ -133,7 +133,7 @@ def main():
         
         frames.append(fps)
         
-        cv2.imshow("Image", img)
+        #cv2.imshow("Image", img)
         cv2.waitKey(1)
     print(sum(frames)/300)
   
