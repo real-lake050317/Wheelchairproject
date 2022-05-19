@@ -104,8 +104,6 @@ def main():
                 temp = command.encode("utf-8")
                 ser.write(temp)
             
-            #totalFingers = fingers.count(1) 펴진 손가락 총 개수 세기(필요 없음)
-            #print(totalFingers)
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
