@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     lat: {
-      type: Boolean,
+      type: String,
       required: true,
     },
     notes: {
