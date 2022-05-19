@@ -4,29 +4,29 @@ import time
 import datetime
 from threading import Thread
 import serial
-ser = serial.Serial("COM3", 19200)
+#ser = serial.Serial("COM3", 19200)
 
 class WebcamVideoStream:
 	def __init__(self, src=0):
 		self.stream = cv2.VideoCapture(src)
 		(self.grabbed, self.frame) = self.stream.read()
 		self.stopped = False
-    
-def start(self):
-	Thread(target=self.update, args=()).start()
-	return self
+  
+    def start(self):
+    	Thread(target=self.update, args=()).start()
+    	return self
 
-def update(self):
-	while True:
-		if self.stopped:
-			return
-		(self.grabbed, self.frame) = self.stream.read()
+    def update(self):
+    	while True:
+    		if self.stopped:
+    			return
+    		(self.grabbed, self.frame) = self.stream.read()
 
-def read(self):
-	return self.frame
+    def read(self):
+    	return self.frame
 
-def stop(self):
-	self.stopped = True
+    def stop(self):
+    	self.stopped = True
 
 class handDetector():
     def __init__(self, mode=False, maxHands=11, detectionCon=0.5, trackCon=0.5):
@@ -73,8 +73,11 @@ def main():
     cTime = 0
     WebcamVideoStream.stream = cv2.VideoCapture(0)
     detector = handDetector()
-    while True:
-        success, img = cap.read()
+    
+    
+    frames = []
+    for _ in range(300):
+        success, img = WebcamVideoStream.stream.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
         if len(lmList) != 0:
@@ -102,36 +105,40 @@ def main():
             if fingers == [0,0,0,0,0]: 
                 command = "n"#"stop"
                 temp = command.encode("utf-8")
-                ser.write(temp)
+                #ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
                 command = "s"#"go straight"
                 temp = command.encode("utf-8")
-                ser.write(temp) 
+                #ser.write(temp) 
 
             elif fingers == [0,1,1,0,0]: 
                 command = "b"#"go backward"
                 temp = command.encode("utf-8")
-                ser.write(temp)
+                #ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
                 command = "l"#"go left"
                 temp = command.encode("utf-8")
-                ser.write(temp)
+                #ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
                 command = "r"#"go right"
                 temp = command.encode("utf-8")
-                ser.write(temp)
-            
-            
+                #ser.write(temp)
+       
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
         
-
+        frames.append(fps)
+        
         cv2.imshow("Image", img)
         cv2.waitKey(1)
+    print(sum(frames)/300)
+  
+        
 
 if __name__ == "__main__":
     main()
+    

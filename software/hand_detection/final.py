@@ -50,7 +50,9 @@ def main():
     cTime = 0
     cap = cv2.VideoCapture(0)
     detector = handDetector()
-    while True:
+    frames = []
+
+    for _ in range(500):
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
@@ -87,6 +89,10 @@ def main():
 
         cv2.imshow("Image", img)
         cv2.waitKey(1)
+                
+        frames.append(fps)
+        
+    print(sum(frames)/500)
 
 
 if __name__ == "__main__":
