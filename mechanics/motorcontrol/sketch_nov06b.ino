@@ -76,6 +76,7 @@ void loop() {
       motor_one_stop();
       motor_two_stop();
     }
+    
     else if (receivedChar == 'b'){ //Backwards, 후진을 하기 위한 Serial이 입력된 경우
       motor_one_backward();
       motor_two_backward();
@@ -83,6 +84,7 @@ void loop() {
       motor_one_stop();
       motor_two_stop();
     }
+
     else if (receivedChar == 'l'){ //Left, 왼쪽으로 회전을 하기 위한 Serial이 입력된 경우
       motor_one_backward();
       motor_two_forward();
@@ -90,7 +92,8 @@ void loop() {
       motor_one_stop();
       motor_two_stop();
     }
-    else if (receivedChar == 'r'){ //Right, 오른쪽으로 회전을 하기 위한 Serial이 입력된 경우
+
+    else if (receivedChar == 'r'){ //Right, 오른`쪽으로 회전을 하기 위한 Serial이 입력된 경우
       motor_one_forward();
       motor_one_backward();
       delay(10);

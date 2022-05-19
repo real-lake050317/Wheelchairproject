@@ -4,29 +4,29 @@ import time
 import datetime
 from threading import Thread
 import serial
-#ser = serial.Serial("COM3", 19200)
 
 class WebcamVideoStream:
-	def __init__(self, src=0):
-		self.stream = cv2.VideoCapture(src)
-		(self.grabbed, self.frame) = self.stream.read()
-		self.stopped = False
-  
+    def __init__(self, src = 0):
+        self.stream = cv2.VideoCapture(src)
+        (self.grabbed, self.frame) = self.stream.read()
+        self.stopped = False
+    
     def start(self):
-    	Thread(target=self.update, args=()).start()
-    	return self
-
+        Thread(target=self.update, args=()).start()
+        return self
+    
     def update(self):
-    	while True:
-    		if self.stopped:
-    			return
-    		(self.grabbed, self.frame) = self.stream.read()
-
+        while True:
+            if self.stopped:
+                return
+            (self.grabbed, self.frame) = self.stream.read()
+    
     def read(self):
-    	return self.frame
-
+        return self.frame
+    
     def stop(self):
-    	self.stopped = True
+        self.stopped = True
+        
 
 class handDetector():
     def __init__(self, mode=False, maxHands=11, detectionCon=0.5, trackCon=0.5):

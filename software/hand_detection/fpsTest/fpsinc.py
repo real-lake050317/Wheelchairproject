@@ -71,7 +71,7 @@ def main():
 
     pTime = 0
     cTime = 0
-    WebcamVideoStream.stream = cv2.VideoCapture('./test.mp4')
+    WebcamVideoStream.stream = cv2.VideoCapture(0)
     detector = handDetector()
     
     
@@ -133,7 +133,7 @@ def main():
         
         frames.append(fps)
         
-        cv2.imshow("Image", img)
+        #cv2.imshow("Image", img)
         cv2.waitKey(1)
     print(sum(frames)/300)
   
