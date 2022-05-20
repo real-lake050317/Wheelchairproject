@@ -5,12 +5,12 @@ import {
   withScriptjs,
   withGoogleMap,
 } from "react-google-maps";
-import { LoadScript } from "@react-google-maps/api";
+//import { LoadScript } from "@react-google-maps/api";
 import GoogleMapReact from "google-map-react";
 import "./MapComponent.css";
 import markericn from "../assets/markericn.png";
 
-const AnyReactComponent = ({ text }) => {
+const MapMarker = ({ text }) => {
   return (
     <div>
       <img src={markericn} alt="Notification" className="marker"></img>
@@ -53,7 +53,7 @@ const MapComponent = () => {
         bootstrapURLKeys={{ key: "AIzaSyA66ylL4qgGKmHJUPU67Y80mgzX_EwAjWU" }}
         defaultCenter={location}
       >
-        <LocationPin
+        <LocationPins
           lat={location.lat}
           lng={location.lng}
           text={location.address}
@@ -102,7 +102,7 @@ const MapComponent = () => {
         defaultZoom={location.zoom}
         zoomControl="false"
       >
-        <AnyReactComponent
+        <MapMarker
           lat={location.center.lat}
           lng={location.center.lng}
           text="User's Current location"

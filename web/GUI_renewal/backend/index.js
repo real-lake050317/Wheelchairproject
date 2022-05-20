@@ -3,10 +3,18 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import usersRoute from './routes/users.js';
+import cors from 'cors';
 
 const PORT = 8800;
 const app = express();
 dotenv.config();
+
+let corsOption = {
+  origin: 'http://localhost:8800', // 허락하는 요청 주소
+  credentials: true // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
+} 
+
+app.use(cors()); // CORS 미들웨어 추가
 
 const connect = async () => {
   try {

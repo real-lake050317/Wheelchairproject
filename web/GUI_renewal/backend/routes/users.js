@@ -1,7 +1,13 @@
-import express from 'express';
-import Hotel from '../models/User.js';
+import express from "express";
+import Hotel from "../models/User.js";
 //import { createError }
-import { createUser, deleteUser, updateUser } from '../controllers/user.js';
+import {
+  createUser,
+  deleteUser,
+  updateUser,
+  getUser,
+  getUsers,
+} from "../controllers/user.js";
 
 const router = express.Router();
 
@@ -12,5 +18,12 @@ router.post("/", createUser);
 router.put(":/id", updateUser);
 
 //DELETE
-router.delete(":/id", deleteUser);
+router.delete("/:id", deleteUser);
+
+//GET
+router.get("/:id", getUser);
+
+//GET ALL
+router.get("/", getUsers);
+
 export default router;
