@@ -1,0 +1,4 @@
+https://forum.arduino.cc/t/how-an-esc-could-be-reverse-a-brushless-motor-rotation/350724/10
+https://www.instructables.com/Interfacing-Brushless-DC-Motor-BLDC-With-Arduino/
+https://joyonclear.tistory.com/9
+https://github.com/Joyonclear/Arduino-BLDC-motor-control/blob/main/brushless_motor_test.ino
