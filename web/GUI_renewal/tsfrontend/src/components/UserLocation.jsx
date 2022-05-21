@@ -3,23 +3,12 @@ import Geocode from "react-geocode";
 import axios from "axios";
 
 import "./UserLocation.css";
+//import { UserData } from "../assets/UserData";
 
-const UserLocation = () => {
+const UserLocation = (props) => {
   const [address, setAddress] = useState("");
 
-  const [coords, setCoords] = useState();
-
-  useEffect(() => {
-    axios
-      .get(
-        'http://localhost:8800/api/users'
-      )
-      .then((response) => {
-        console.log(response.data[0]);
-        setCoords(response.data[0]);
-        console.log(coords);
-      })
-  }, [])
+  
   /*
   const location = {
     name: "Jinho Kim",
@@ -33,13 +22,14 @@ const UserLocation = () => {
   */
   Geocode.setApiKey(process.env.REACT_APP_API_KEY);
   Geocode.enableDebug();
+  Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
   const key = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.location.lat},${coords.location.lng}&key=${key}`
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${props.data.location.lat},${props.data.location.lng}&key=${key}`
       )
       .then((response) => {
         setAddress(response.data.results[0].formatted_address);
@@ -47,15 +37,28 @@ const UserLocation = () => {
   });
   //console.log(address);
 
+  /*
+  useEffect (() => {
+    axios
+      .get (
+        `http://localhost:8800/api/users`
+      )
+      .then ((response) => {
+        setAddress(response.data.results[0]..formatted_address);
+      });
+  })
+  */
+  console.log(props.data)
   return (
     <div className="location">
       <label>
-        {/*{location.name} */} 김진호 님은 <br></br>
-        { coords.date } 기준
+        { props.data.name} 님은 <br></br>
+        { props.data.time } 기준<br></br>
+        위도 {props.data.location.lat}, 경도 {props.data.location.lng}에 있으며,
       </label>
       <br></br>
       <label>
-        위도 {coords.location.lat}, 경도 {coords.location.lng}에 있으며,
+        
         <br></br>
         주소는 {address} 입니다.
       </label>

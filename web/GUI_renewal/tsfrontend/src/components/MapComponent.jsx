@@ -1,10 +1,12 @@
 import React from "react";
+/*
 import {
   Marker,
   GoogleMap,
   withScriptjs,
   withGoogleMap,
 } from "react-google-maps";
+*/
 //import { LoadScript } from "@react-google-maps/api";
 import GoogleMapReact from "google-map-react";
 import "./MapComponent.css";
@@ -19,14 +21,6 @@ const MapMarker = ({ text }) => {
   );
 };
 
-const location = {
-  center: {
-    lat: 37.457919811062204,
-    lng: 128.14512067905684,
-  },
-  zoom: 18,
-};
-
 /*
 const LocationPin = () => (
   <div className="pin">
@@ -35,7 +29,7 @@ const LocationPin = () => (
 );
 */
 
-const MapComponent = () => {
+const MapComponent = (props) => {
   //const render = (status: Status) => {
   //  return <h1>{status}</h1>;
   //};
@@ -46,11 +40,20 @@ const MapComponent = () => {
   }
   //</Wrapper>;
 
+  const hello = {
+    center: {
+      lat: 37.457919811062204,
+      lng: 128.14512067905684,
+    },
+    zoom: 18,
+  };
+  //console.log(props.data.location.lat)
+  console.log(props.data);
   return (
     /*
     <div className="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyA66ylL4qgGKmHJUPU67Y80mgzX_EwAjWU" }}
+        bootstrapURLKeys={{ key: "" }}
         defaultCenter={location}
       >
         <LocationPins
@@ -98,13 +101,13 @@ const MapComponent = () => {
     <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
-        defaultCenter={location.center}
-        defaultZoom={location.zoom}
+        defaultCenter={hello.center}
+        defaultZoom={18}
         zoomControl="false"
       >
         <MapMarker
-          lat={location.center.lat}
-          lng={location.center.lng}
+          lat={hello.center.lat}
+          lng={hello.center.lng}
           text="User's Current location"
         />
       </GoogleMapReact>
