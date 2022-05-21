@@ -7,8 +7,6 @@ import "./UserLocation.css";
 
 const UserLocation = (props) => {
   const [address, setAddress] = useState("");
-
-  
   /*
   const location = {
     name: "Jinho Kim",
@@ -48,17 +46,16 @@ const UserLocation = (props) => {
       });
   })
   */
-  console.log(props.data)
+  //console.log(props.data);
+
   return (
     <div className="location">
       <label>
-        { props.data.name} 님은 <br></br>
-        { props.data.time } 기준<br></br>
+        {props.data.name} 님은 <br></br>
+        {props.data.time} 기준<br></br>
         위도 {props.data.location.lat}, 경도 {props.data.location.lng}에 있으며,
       </label>
-      <br></br>
       <label>
-        
         <br></br>
         주소는 {address} 입니다.
       </label>

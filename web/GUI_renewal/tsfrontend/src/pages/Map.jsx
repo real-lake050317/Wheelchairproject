@@ -29,9 +29,9 @@ const Map = () => {
   return (
     <div className='map-page'>
       <React.Fragment>
-        <UserPageExit data = { coords } />
-        <UserLocation data = { coords }/>
-        <MapComponent />
+        <UserPageExit />
+        <UserLocation data = { coords } />
+        <MapComponent data = { coords } />
       </React.Fragment>
     </div>
   );

@@ -35,20 +35,24 @@ const MapComponent = (props) => {
   //};
 
   //<Wrapper apiKey={""} render={render}>
-  {
-    /* <YourComponent /> */
-  }
+  
+  // <YourComponent />
+  
   //</Wrapper>;
-
+  /*
   const hello = {
     center: {
-      lat: 37.457919811062204,
-      lng: 128.14512067905684,
+      lat: 37.1234,
+      lng: 128.1234,
     },
     zoom: 18,
   };
+  */
   //console.log(props.data.location.lat)
-  console.log(props.data);
+  
+  //console.log(props.data);
+  console.log(props.data.location.lat);
+
   return (
     /*
     <div className="map">
@@ -101,13 +105,13 @@ const MapComponent = (props) => {
     <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY }}
-        defaultCenter={hello.center}
+        defaultCenter={props.data.location}
         defaultZoom={18}
         zoomControl="false"
       >
         <MapMarker
-          lat={hello.center.lat}
-          lng={hello.center.lng}
+          lat={props.data.location.lat}
+          lng={props.data.location.lng}
           text="User's Current location"
         />
       </GoogleMapReact>
