@@ -23,7 +23,8 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-speech-kit": "^3.0.1",
-    "simple-keyboard": "^3.4.69",
+    "react-virtual-keyboard": "^1.0.2",
+    "simple-keyboard": "^3.4.102",
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },

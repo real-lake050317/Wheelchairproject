@@ -10,8 +10,8 @@ const UserPageNav = () => {
       <NavLink to="/userpage/map" className="profile-button">
         <button className="functions">MAP</button>
       </NavLink>
-      <NavLink to="/userpage/chat" className="profile-button">
-        <button className="functions">CHAT</button>
+      <NavLink to="/userpage/settings" className="profile-button">
+        <button className="functions">SETTINGS</button>
       </NavLink>
     </div>
   );

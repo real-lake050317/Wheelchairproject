@@ -21,7 +21,7 @@ const Map = () => {
       .then((response) => {
         //console.log(response.data[0]);
         setCoords(response.data[0]);
-        //console.log(coords);
+        console.log(coords);
       })
   }, [])
 

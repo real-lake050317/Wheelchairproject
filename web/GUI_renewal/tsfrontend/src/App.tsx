@@ -11,7 +11,7 @@ import Homescreen from "./pages/Homescreen";
 import UserMainPage from "./pages/UserMainPage";
 import TTSPage from "./pages/TTSPage";
 import Map from "./pages/Map";
-import Chat from "./pages/Chat";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/userpage" element={<UserMainPage />} />
         <Route path="/userpage/tts" element={<TTSPage />} />
         <Route path="/userpage/map" element={<Map />} />
-        <Route path="/userpage" element={<Chat />} />
+        <Route path="/userpage/settings" element={<Settings />} />
       </Routes>
     </Router>
   );
