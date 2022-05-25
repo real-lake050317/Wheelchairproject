@@ -1,5 +1,5 @@
 import express from "express";
-import Hotel from "../models/User.js";
+import User from "../models/User.js";
 //import { createError }
 import {
   createUser,

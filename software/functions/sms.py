@@ -14,7 +14,7 @@ import keys
 
 # https://api.ncloud-docs.com/docs/ko/ai-application-service-sens-smsv2#api-header
 
-def	make_signature(uri): #POST
+def	make_signature(uri): #POSTS
 	timestamp = str(int(float(time.time()) * 1000))
 	secret_key = bytes(keys.secret_key, 'UTF-8')
 	access_key=keys.access_key
