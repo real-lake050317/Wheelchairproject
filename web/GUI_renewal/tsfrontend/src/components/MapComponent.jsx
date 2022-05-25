@@ -51,7 +51,7 @@ const MapComponent = (props) => {
   //console.log(props.data.location.lat)
   
   //console.log(props.data);
-  console.log(props.data);
+  //console.log(props.data);
 
   return (
     /*

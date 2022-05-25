@@ -1,15 +1,34 @@
-import React from "react";
-import {useState} from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./SMSComponent.css";
 
 const SMSComponent = () => {
-  const [message, setMessage] = useState('');
-  
-  const send_message = (event) => {
-    setMessage(event.target.value);
+  const [message, setMessage] = useState("");
+
+  const messageUpdate = (event) => {
     console.log(event.target.value);
-  }
+    setMessage(event.target.value);
+  };
+
+  const submitMessage = () => {
+    axios({
+      url: 'http://localhost:8800/api/sms', // 통신할 웹문서
+      method: 'post', // 통신할 방식
+      data: { // 인자로 보낼 데이터
+        "message": message,
+        "contact": "010-9966-6503"
+      }
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+        throw new Error(error);
+      });
+  };
+
   return (
     <div className="sms-sender">
       <div className="contacts">
@@ -69,10 +88,15 @@ const SMSComponent = () => {
           <button>Save</button>
         </div>
         <div className="write-message">
-          <textarea className="message-text" cols={30} rows={10} />
+          <textarea
+            className="message-text"
+            cols={30}
+            rows={10}
+            onChange={messageUpdate}
+          />
           <div className="messagewrite-buttons">
             <button>입력</button>
-            <button>보내기</button>
+            <button onClick={ submitMessage }>보내기</button>
           </div>
         </div>
       </div>

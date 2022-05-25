@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import usersRoute from './routes/users.js';
+import smsRoute from './routes/sms.js';
 import cors from 'cors';
 
 const PORT = 8800;
@@ -29,10 +30,15 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongodb disconnected");
 });
 
+mongoose.connection.on("connected", () => {
+  console.log("mongodb connected");
+});
+
 app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/users", usersRoute);
+app.use("/api/sms", smsRoute);
 
 app.use((req, res, next) => {
   console.log("Middleware used");
