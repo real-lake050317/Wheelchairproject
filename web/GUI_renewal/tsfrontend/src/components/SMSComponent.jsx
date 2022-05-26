@@ -11,14 +11,15 @@ const SMSComponent = () => {
     setMessage(event.target.value);
   };
 
-  const submitMessage = () => {
+  const submitMessage = (event) => {
     axios({
-      url: 'http://localhost:8800/api/sms', // 통신할 웹문서
-      method: 'post', // 통신할 방식
-      data: { // 인자로 보낼 데이터
-        "message": message,
-        "contact": "01099666503"
-      }
+      url: "http://localhost:8800/api/sms", // 통신할 웹문서
+      method: "post", // 통신할 방식
+      data: {
+        // 인자로 보낼 데이터
+        message: message,
+        contact: "01099666503",
+      },
     })
       .then((res) => {
         console.log(res);
@@ -27,6 +28,7 @@ const SMSComponent = () => {
         console.log(error);
         throw new Error(error);
       });
+      //event.target = "";
   };
 
   return (
@@ -96,7 +98,7 @@ const SMSComponent = () => {
           />
           <div className="messagewrite-buttons">
             <button>입력</button>
-            <button onClick={ submitMessage }>보내기</button>
+            <button onClick={submitMessage}>보내기</button>
           </div>
         </div>
       </div>
