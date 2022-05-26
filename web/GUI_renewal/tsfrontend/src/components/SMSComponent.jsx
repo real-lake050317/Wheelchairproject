@@ -29,6 +29,7 @@ const SMSComponent = () => {
         throw new Error(error);
       });
       //event.target = "";
+      setMessage("");
   };
 
   return (
