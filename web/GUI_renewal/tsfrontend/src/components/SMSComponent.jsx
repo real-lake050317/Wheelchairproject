@@ -17,7 +17,7 @@ const SMSComponent = () => {
       method: 'post', // 통신할 방식
       data: { // 인자로 보낼 데이터
         "message": message,
-        "contact": "010-9966-6503"
+        "contact": "01099666503"
       }
     })
       .then((res) => {

@@ -1,7 +1,5 @@
-# SMS API using Naver Opencloud
-# Hyunmin Lee
-# 21.10.26 v0.0.1
-
+import pymongo
+from pymongo import MongoClient
 import sys
 import os
 import hashlib
@@ -11,8 +9,11 @@ import time
 import json
 import requests
 import keys
+import time
 
-# https://api.ncloud-docs.com/docs/ko/ai-application-service-sens-smsv2#api-header
+cluster = MongoClient('mongodb+srv://realtonypark:qkrtmdgus@wheelchairproject.qpdsg.mongodb.net/?retryWrites=true&w=majority')
+db = cluster['test']
+collection = db['sms']
 
 def	make_signature(uri): #POSTS
 	timestamp = str(int(float(time.time()) * 1000))
@@ -48,4 +49,19 @@ def smssend(message_to,message_content): #POST
 	response_send=requests.post(send_url,headers=headers,data=body)
 	print(response_send.text)
 
-smssend("01099666503","김씨")
+#smssend(doc['contact'],doc['message'])
+
+smsdoc = collection.find_one()
+    
+while True:
+    doc = collection.find_one()
+
+    for x in collection.find():
+        doc = x
+    
+    if smsdoc['message'] != doc['message']:
+        smssend(doc['contact'], doc['message'])
+        smsdoc = doc
+        print(doc)
+    
+    time.sleep(15)

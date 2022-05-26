@@ -11,11 +11,11 @@ const app = express();
 dotenv.config();
 
 let corsOption = {
-  origin: 'http://localhost:8800', // 허락하는 요청 주소
-  credentials: true // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
+  origin: 'http://localhost:8800',
+  credentials: true
 } 
 
-app.use(cors()); // CORS 미들웨어 추가
+app.use(cors());
 
 const connect = async () => {
   try {

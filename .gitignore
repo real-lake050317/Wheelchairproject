@@ -5,3 +5,4 @@ GUI_renewal/frontend/src/pages/Map.js
 __pycache__/
 *.py[cod]
 *$py.class
+software/tests/keys.py

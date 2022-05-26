@@ -7,3 +7,4 @@ mycol = mydb["gps"]
 mydict = { "name": "John", "address": "Highway 37" }
 
 x = mycol.insert_one(mydict)
+
