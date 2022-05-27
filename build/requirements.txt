@@ -1,0 +1,5 @@
+mediapipe==0.8.10
+opencv-python==4.5.5.64
+pymongo==4.1.1
+requests==2.27.1
+dnspython==2.2.1
