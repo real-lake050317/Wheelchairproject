@@ -1,0 +1,12 @@
+input.contact-choice {
+  width: 40px;
+  height: 40px;
+}
+
+.sms-sender{
+    margin-right: 100px;
+}
+
+.message-text {
+  font-size: 30px;
+}
