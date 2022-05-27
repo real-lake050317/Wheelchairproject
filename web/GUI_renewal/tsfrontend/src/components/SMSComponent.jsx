@@ -5,6 +5,7 @@ import "./SMSComponent.css";
 
 const SMSComponent = () => {
   const [message, setMessage] = useState("");
+  const [contact, setContact] = useState("01099666503");
 
   const messageUpdate = (event) => {
     console.log(event.target.value);
@@ -13,23 +14,24 @@ const SMSComponent = () => {
 
   const submitMessage = (event) => {
     axios({
-      url: "http://localhost:8800/api/sms", // 통신할 웹문서
-      method: "post", // 통신할 방식
+      url: "http://localhost:8800/api/sms",
+      method: "post",
       data: {
-        // 인자로 보낼 데이터
         message: message,
-        contact: "01099666503",
+        contact: contact,
       },
     })
       .then((res) => {
-        console.log(res);
+        //console.log(res);
       })
       .catch((error) => {
         console.log(error);
         throw new Error(error);
       });
-      //event.target = "";
-      setMessage("");
+    //event.target = "";
+    setMessage(""); //Requires additional check
+    event.preventDefault();
+    alert("Message Sent");
   };
 
   return (
@@ -93,13 +95,16 @@ const SMSComponent = () => {
         <div className="write-message">
           <textarea
             className="message-text"
-            cols={30}
+            cols={40}
             rows={10}
             onChange={messageUpdate}
+            value = { message }
           />
           <div className="messagewrite-buttons">
             <button>입력</button>
-            <button onClick={submitMessage}>보내기</button>
+            <button type="submit" onClick={ submitMessage }>
+              보내기
+            </button>
           </div>
         </div>
       </div>

@@ -6,3 +6,7 @@ input.contact-choice {
 .sms-sender{
     margin-right: 100px;
 }
+
+.message-text {
+  font-size: 30px;
+}

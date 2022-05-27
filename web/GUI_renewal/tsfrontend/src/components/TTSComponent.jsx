@@ -1,12 +1,14 @@
 import React from "react";
 import { useSpeechSynthesis } from "react-speech-kit";
 
+//import VirtualKeyboard from "./VirtualKeyboard";
+
 import "./TTSComponent.css";
 
 const TTSComponent = () => {
   const [value, setValue] = React.useState("");
   const { speak } = useSpeechSynthesis();
-  
+
   return (
     <div className="tts-service">
       <textarea
@@ -16,10 +18,7 @@ const TTSComponent = () => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <button
-        className="tts-speak"
-        onClick={() => speak({ text: value })}
-      >
+      <button className="tts-speak" onClick={() => speak({ text: value })}>
         SPEAK
       </button>
     </div>
