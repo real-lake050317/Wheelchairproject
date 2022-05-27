@@ -55,7 +55,6 @@ smsdoc = collection.find_one()
     
 while True:
     doc = collection.find_one()
-
     for x in collection.find():
         doc = x
     

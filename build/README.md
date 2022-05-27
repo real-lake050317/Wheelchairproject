@@ -33,6 +33,7 @@ Version specs will be constantly updated by the developers.
 ### 1. apisms.py
 
 * Package Requirements:
+
   * Pymongo
     * MongoClient
   * sys
@@ -45,6 +46,7 @@ Version specs will be constantly updated by the developers.
   * requests
   * time
 * File Requirements:
+
   * keys.py
 
 ##### About keys.py
@@ -57,7 +59,7 @@ keys.py must be saved only in local, and should not be uploaded in git repositor
 
 Users should insert their own key values refering to example.key.py 
 
-The developers of the project highly recommends the users to prevent keys.py to be uploaded in git repository using .gitignore file.
+The devitelopers of the project highly recommends the users to prevent keys.py to be uploaded in git repository using .gitignore file.
 
 Users are solely responsible for careless file management.
 
@@ -74,4 +76,4 @@ inc_fps_serial.py allows users to operate wheelchair with handsigns.
     * BLDC motor supplying proper amount of power, 500W/36V recommended (about 14 amps)
     * 2 channel BLDC motor driver that can endure 36V or more voltage
     * Raspberry pie or other alternate mini computers that can run python programs, and arduino codes and control motors
-    *
+    * Power supply for Raspberry pie
