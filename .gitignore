@@ -6,3 +6,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 software/tests/keys.py
+
+build/src/keys.py
