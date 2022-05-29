@@ -12,6 +12,10 @@ const SMSComponent = () => {
     setMessage(event.target.value);
   };
 
+  const emptyMessage = () => {
+    setMessage("");
+  }
+
   const submitMessage = (event) => {
     axios({
       url: "http://localhost:8800/api/sms",
@@ -85,7 +89,7 @@ const SMSComponent = () => {
               friend3
             </label>
           </form>
-          <button className="contact-button">전체취소</button>
+          <button className="contact-button" onClick = {emptyMessage} >전체취소</button>
         </div>
         <div className="saved-messages">
           <button>선택항목 삭제</button>
