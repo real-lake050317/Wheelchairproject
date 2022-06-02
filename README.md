@@ -99,7 +99,4 @@ After all the process, you're ready to go!
 
 ___
 ### Published Competitions
-* KSEF (Korean Science and Engineering Fair) 2021, Invention Field, Bronze Medal
-* ESE (Expo Sciences Europe) July 2022, Suceava, Romania, Participating as Republic of Korea Rep.
 * KCF (Korea Code Fair) from May 2022
-* Genius Olympiad 2022, Innovation Field
