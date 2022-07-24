@@ -50,7 +50,6 @@ class handDetector():
         return img
 
     def findPosition(self, img, handNo=0, draw=True):
-
         lmList = []
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]
@@ -76,7 +75,7 @@ def main():
     
     
     frames = []
-    for _ in range(300):
+    while True:
         success, img = WebcamVideoStream.stream.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
