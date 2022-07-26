@@ -72,13 +72,6 @@ def main():
                 else:
                     fingers.append(0)
             print(fingers)
-            '''
-            if fingers == [0,0,0,0,0]: stop()
-            elif fingers == [0,1,0,0,0]: go_straight()
-            elif fingers == [0,1,1,0,0]: go_backward()
-            elif fingers == [1,0,0,0,0]: turn_left()
-            elif fingers == [1,1,1,0,0]: turn_right()
-            '''
             #totalFingers = fingers.count(1)
             #print(totalFingers)
 
@@ -92,7 +85,7 @@ def main():
                 
         frames.append(fps)
         
-    print(sum(frames)/500)
+    #print(sum(frames)/500)
 
 
 if __name__ == "__main__":

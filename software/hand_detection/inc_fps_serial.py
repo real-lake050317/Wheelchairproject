@@ -74,9 +74,7 @@ def main():
     WebcamVideoStream.stream = cv2.VideoCapture(0)
     detector = handDetector()
     
-    
-    frames = []
-    for _ in range(300):
+    while True:
         success, img = WebcamVideoStream.stream.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
@@ -130,8 +128,6 @@ def main():
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
-        
-        frames.append(fps)
         
         #cv2.imshow("Image", img)
         cv2.waitKey(1)

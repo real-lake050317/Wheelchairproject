@@ -1,32 +1,10 @@
 import cv2
 import mediapipe as mp
 import time
-import datetime
-from threading import Thread
 import serial
+#ser = serial.Serial("COM3", 19200)
 
-class WebcamVideoStream:
-    def __init__(self, src = 0):
-        self.stream = cv2.VideoCapture(src)
-        (self.grabbed, self.frame) = self.stream.read()
-        self.stopped = False
-    
-    def start(self):
-        Thread(target=self.update, args=()).start()
-        return self
-    
-    def update(self):
-        while True:
-            if self.stopped:
-                return
-            (self.grabbed, self.frame) = self.stream.read()
-    
-    def read(self):
-        return self.frame
-    
-    def stop(self):
-        self.stopped = True
-        
+#04:03:20
 
 class handDetector():
     def __init__(self, mode=False, maxHands=11, detectionCon=0.5, trackCon=0.5):
@@ -42,6 +20,7 @@ class handDetector():
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
+        # print(results.multi_hand_landmarks)
 
         if self.results.multi_hand_landmarks:
             for handLms in self.results.multi_hand_landmarks:
@@ -50,6 +29,7 @@ class handDetector():
         return img
 
     def findPosition(self, img, handNo=0, draw=True):
+
         lmList = []
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]
@@ -64,19 +44,17 @@ class handDetector():
 
         return lmList
 
+
 def main():
     #4는 엄지 끝, 8은 검지 끝, 12는 중지 끝...
     fingertips = [4, 8, 12, 16, 20]
 
     pTime = 0
     cTime = 0
-    WebcamVideoStream.stream = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0)
     detector = handDetector()
-    
-    
-    frames = []
     while True:
-        success, img = WebcamVideoStream.stream.read()
+        success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
         if len(lmList) != 0:
@@ -104,37 +82,38 @@ def main():
             if fingers == [0,0,0,0,0]: 
                 command = "n"#"stop"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
                 command = "s"#"go straight"
                 temp = command.encode("utf-8")
-                #ser.write(temp) 
+                ser.write(temp) 
 
             elif fingers == [0,1,1,0,0]: 
                 command = "b"#"go backward"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
                 command = "l"#"go left"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
                 command = "r"#"go right"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
-       
+                ser.write(temp)
+            
+            #totalFingers = fingers.count(1) 펴진 손가락 총 개수 세기(필요 없음)
+            #print(totalFingers)
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
-        
-        frames.append(fps)
-        
-        #cv2.imshow("Image", img)
+        #cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+
+        cv2.imshow("Image", img)
         cv2.waitKey(1)
-    #print(sum(frames)/300)
+
 
 if __name__ == "__main__":
     main()

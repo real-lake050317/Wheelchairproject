@@ -57,7 +57,7 @@ def main():
     detector = handDetector()
     
     frames = []
-    for _ in range(300):
+    while True:
         success, img = cap.read()
         img = detector.findHands(img)
         lmList = detector.findPosition(img)
