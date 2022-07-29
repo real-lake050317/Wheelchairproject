@@ -31,6 +31,8 @@ const UserLocation = (props) => {
       )
       .then((response) => {
         setAddress(response.data.results[0].formatted_address);
+        console.log(address);
+        console.log(props.data);
       });
   });
   //console.log(address);

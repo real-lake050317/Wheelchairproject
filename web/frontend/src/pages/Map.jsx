@@ -11,20 +11,27 @@ import './Map.css';
 
   
 const Map = () => {
-  const [coords, setCoords] = useState(UserData);
-
+  //const [coords, setCoords] = useState(UserData);
+  const [isLoading, setIsLoading] = useState(true);
+  var coords = UserData;
   useEffect(() => {
     axios
       .get(
         'http://localhost:8800/api/users'
       )
       .then((response) => {
-        //console.log(response.data[0]);
-        setCoords(response.data[0]);
+        console.log(response.data[0]);
+        //setCoords(response.data[0]);
+        coords = response.data[0];
         console.log(coords);
+        setIsLoading(false);
       })
-  }, [coords])
-
+  }, [])
+  if (isLoading) {
+    return (
+      <h1>Loading..</h1>
+    )
+  }
 
   return (
     <div className='map-page'>
