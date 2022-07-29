@@ -52,7 +52,7 @@ def smssend(message_to,message_content): #POST
 #smssend(doc['contact'],doc['message'])
 
 smsdoc = collection.find_one()
-    
+
 while True:
     doc = collection.find_one()
     for x in collection.find():

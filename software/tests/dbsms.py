@@ -12,12 +12,6 @@ import base64
 import requests
 import time
 import json
-from dotenv import load_dotenv
-
-load_dotenv()
-
-dotenv_path = Path('../../web/GUI_renewal/backend/.env')
-load_dotenv(dotenv_path=dotenv_path)
 
 API_KEY = os.getenv('API_KEY')
 access_key = os.getenv('access_key')

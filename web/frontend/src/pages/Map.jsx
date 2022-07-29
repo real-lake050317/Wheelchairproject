@@ -23,7 +23,7 @@ const Map = () => {
         setCoords(response.data[0]);
         console.log(coords);
       })
-  }, [])
+  }, [coords])
 
 
   return (

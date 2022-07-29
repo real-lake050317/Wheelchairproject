@@ -5,7 +5,7 @@ import "./SMSComponent.css";
 
 const SMSComponent = () => {
   const [message, setMessage] = useState("");
-  const [contact, setContact] = useState("01099666503");
+  const contact = "01099666503";
 
   const messageUpdate = (event) => {
     console.log(event.target.value);
