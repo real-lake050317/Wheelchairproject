@@ -4,7 +4,7 @@ import time
 import datetime
 from threading import Thread
 import serial
-#ser = serial.Serial("COM3", 19200)
+ser = serial.Serial("/dev/cu.usbmodem1101", 19200)
 
 #04:03:20
 
@@ -82,7 +82,7 @@ def main():
                     fingers.append(0)
                     #접혀 있으면 리스트에 0 추가
             
-            #print(fingers)
+            print(fingers)
             
             if fingers == [0,0,0,0,0]: 
                 command = "n"#"stop"
@@ -92,22 +92,22 @@ def main():
             elif fingers == [0,1,0,0,0]: 
                 command = "s"#"go straight"
                 temp = command.encode("utf-8")
-                #ser.write(temp) 
+                ser.write(temp) 
 
             elif fingers == [0,1,1,0,0]: 
                 command = "b"#"go backward"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
                 command = "l"#"go left"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
                 command = "r"#"go right"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
             
         cTime = time.time()
         fps = 1 / (cTime - pTime)

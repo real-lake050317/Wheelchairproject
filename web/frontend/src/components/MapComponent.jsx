@@ -104,7 +104,7 @@ const MapComponent = (props) => {
     */
     <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
-        bootstrapURLKeys = {process.env.REACT_APP_API_KEY}
+        bootstrapURLKeys = "AIzaSyAcjE4UddFfzC1RsfEGyF07YIrFkA0ESfk"
         defaultCenter={props.data.location}
         defaultZoom={16}
         zoomControl="false"

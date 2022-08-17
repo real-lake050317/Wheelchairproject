@@ -63,4 +63,4 @@ while True:
         smsdoc = doc
         print(doc)
     
-    time.sleep(15)
+    time.sleep(15)	
