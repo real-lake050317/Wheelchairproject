@@ -2,13 +2,15 @@ char receivedChar;
 boolean newData = false;
 
 // Motor A connections
-int enA = 9;
-int in1 = 8;
-int in2 = 7;
+int enA = 11;
+int in1 = 10;
+int in2 = 9;
 // Motor B connections
-int enB = 3;
+int enB = 6;
 int in3 = 5;
 int in4 = 4;
+
+int flg = 0;
 
 void recvOneChar() { //새로운 Serial 데이터를 수신하기 위한 함수
     newData = false;
@@ -19,8 +21,8 @@ void recvOneChar() { //새로운 Serial 데이터를 수신하기 위한 함수
 }
 
 void setup() {
-  analogWrite(enA, 255);
-  analogWrite(enB, 255);
+  analogWrite(enA, 120);
+  analogWrite(enB, 120);
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
   pinMode(in1, OUTPUT);
@@ -36,22 +38,14 @@ void setup() {
 }
 
 void loop() {
-  receivedChar = 'a';
-  recvOneChar();
-  /*
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  delay(1000);
-  
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  delay(1000);
-  
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
   delay(1000);
-  */
-  if (newData == true) {
-    
-  }
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  delay(1000);
 }

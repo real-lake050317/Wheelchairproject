@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import sys
 import os
 import hashlib
-import hmac
+#import hmacs
 import base64
 import time
 import json

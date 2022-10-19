@@ -27,11 +27,8 @@ const Map = () => {
         setIsLoading(false);
       })
   }, [])
-  if (isLoading) {
-    return (
-      <h1>Loading..</h1>
-    )
-  }
+  
+
 
   return (
     <div className='map-page'>

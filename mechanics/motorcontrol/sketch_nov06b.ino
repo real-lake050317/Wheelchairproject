@@ -69,36 +69,6 @@ void loop() {
   receivedChar = 'a';
   recvOneChar();
   if (newData == true){
-    if (receivedChar == 's'){ //Straight, 직진을 하기 위한 Serial이 입력된 경우
-      motor_one_forward();
-      motor_two_forward();
-      delay(10);
-      motor_one_stop();
-      motor_two_stop();
-    }
-    
-    else if (receivedChar == 'b'){ //Backwards, 후진을 하기 위한 Serial이 입력된 경우
-      motor_one_backward();
-      motor_two_backward();
-      delay(10);
-      motor_one_stop();
-      motor_two_stop();
-    }
-
-    else if (receivedChar == 'l'){ //Left, 왼쪽으로 회전을 하기 위한 Serial이 입력된 경우
-      motor_one_backward();
-      motor_two_forward();
-      delay(10);
-      motor_one_stop();
-      motor_two_stop();
-    }
-
-    else if (receivedChar == 'r'){ //Right, 오른`쪽으로 회전을 하기 위한 Serial이 입력된 경우
-      motor_one_forward();
-      motor_one_backward();
-      delay(10);
-      motor_one_stop();
-      motor_two_stop();
-    }
+    Serial.println(receivedChar);
   }
 }

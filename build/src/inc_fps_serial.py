@@ -4,6 +4,8 @@ import time
 import datetime
 from threading import Thread
 import serial
+ser = serial.Serial("/dev/cu.usbmodem1101", 19200)
+
 
 class WebcamVideoStream:
     def __init__(self, src = 0):
@@ -104,27 +106,27 @@ def main():
             if fingers == [0,0,0,0,0]: 
                 command = "n"#"stop"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
                 command = "s"#"go straight"
                 temp = command.encode("utf-8")
-                #ser.write(temp) 
+                ser.write(temp) 
 
             elif fingers == [0,1,1,0,0]: 
                 command = "b"#"go backward"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
                 command = "l"#"go left"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
                 command = "r"#"go right"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
        
         cTime = time.time()
         fps = 1 / (cTime - pTime)

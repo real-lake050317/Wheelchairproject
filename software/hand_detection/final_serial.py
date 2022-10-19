@@ -117,7 +117,6 @@ def main():
         
         cv2.imshow("Image", img)
         cv2.waitKey(1)
-    print(sum(frames)/300)
 
 
 if __name__ == "__main__":
