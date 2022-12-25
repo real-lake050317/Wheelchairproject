@@ -16,7 +16,7 @@ class handDetector():
         self.trackCon = trackCon
         self.modelComplex = modelComplexity
 
-        self.mpHands = mp.solutions.hands
+        self.mpHands = mp.solutions.hands   
         self.hands = self.mpHands.Hands(self.mode, self.maxHands,self.modelComplex, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
@@ -87,7 +87,7 @@ def main():
             if fingers == [0,0,0,0,0]: 
                 command = "n"#"stop"
                 temp = command.encode("utf-8")
-                #ser.write(temp)
+                ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
                 command = "s"#"go straight"

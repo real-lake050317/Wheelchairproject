@@ -11,10 +11,10 @@ import requests
 import keys
 import time
 
-cluster = MongoClient('mongodb+srv://realtonypark:qkrtmdgus@wheelchairproject.qpdsg.mongodb.net/?retryWrites=true&w=majority')
+cluster = MongoClient('mongodb+srv://jinojoa317:paxton203@wheelchairproject.qpdsg.mongodb.net/?retryWrites=true&w=majority')
 db = cluster['test']
 collection = db['sms']
-
+w
 def	make_signature(uri): #POSTS
 	timestamp = str(int(float(time.time()) * 1000))
 	secret_key = bytes(keys.secret_key, 'UTF-8')
