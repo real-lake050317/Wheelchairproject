@@ -100,5 +100,4 @@ After all the process, you're ready to go!
 ___
 ### Published Competitions
 * KCF (Korea Code Fair) from May 2022: Gold Prize (2nd place) 459/500 (Finished)
-* Samsung Humantech Paper Award: Accepted Abstract (Ongoing)
-* ISEF tryout (Ongoing)
+* ISEF tryout passed, 2023 Regeneron International Science and Engineering Fair Natl' representative of Rep. Korea
