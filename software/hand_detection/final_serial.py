@@ -4,9 +4,7 @@ import time
 import datetime
 from threading import Thread
 import serial
-ser = serial.Serial("/dev/cu.usbmodem1101", 19200)
-
-#04:03:20
+ser = serial.Serial("/dev/cu.usbmodem1101", 9600)
 
 class handDetector():
     def __init__(self, mode=False, maxHands=11, modelComplexity=1, detectionCon=0.5, trackCon=0.5):
@@ -32,7 +30,6 @@ class handDetector():
         return img
 
     def findPosition(self, img, handNo=0, draw=True):
-
         lmList = []
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]

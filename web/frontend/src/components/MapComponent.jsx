@@ -97,14 +97,13 @@ const MapComponent = (props) => {
     </GoogleMap>
     
     <LoadScript
-    googleMapsApiKey="AIzaSyA66ylL4qgGKmHJUPU67Y80mgzX_EwAjWU"
     >
       
     </LoadScript>
     */
     <div style={{ height: "100vh", width: "50%" }} className="map">
       <GoogleMapReact
-        bootstrapURLKeys = "AIzaSyAcjE4UddFfzC1RsfEGyF07YIrFkA0ESfk"
+        bootstrapURLKeys ={REACT_APP_API_KEY}
         defaultCenter={props.data.location}
         defaultZoom={16}
         zoomControl="false"
