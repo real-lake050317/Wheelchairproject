@@ -62,32 +62,32 @@ def main():
         if len(lmList) != 0:
             fingers = []
 
-            #엄지 손가락
+            # 엄지 손가락
             if lmList[fingertips[0]][1] > lmList[fingertips[0]-1][1]:
                 fingers.append(1)
-                #펴져 있으면 리스트에 1 추가
+                # 펴져 있으면 리스트에 1 추가
             else:
                 fingers.append(0)
-                #접혀 있으면 리스트에 0 추가
+                # 접혀 있으면 리스트에 0 추가
 
-            #나머지 손가락
+            # 나머지 손가락
             for id in range(1,5):
                 if lmList[fingertips[id]][2] < lmList[fingertips[id]-2][2]:
                     fingers.append(1)
-                    #펴져 있으면 리스트에 1 추가
+                    # 펴져 있으면 리스트에 1 추가
                 else:
                     fingers.append(0)
-                    #접혀 있으면 리스트에 0 추가
+                    # 접혀 있으면 리스트에 0 추가
             
             print(fingers)
             
             if fingers == [0,0,0,0,0]: 
-                command = "n"#"stop"
+                command = "n" # "stop"
                 temp = command.encode("utf-8")
                 ser.write(temp)
 
             elif fingers == [0,1,0,0,0]: 
-                command = "s"#"go straight"
+                command = "s" # "go straight"
                 temp = command.encode("utf-8")
                 ser.write(temp) 
 
@@ -97,12 +97,12 @@ def main():
                 ser.write(temp)
 
             elif fingers == [1,0,0,0,0]: 
-                command = "l"#"go left"
+                command = "l" # "go left"
                 temp = command.encode("utf-8")
                 ser.write(temp)
 
             elif fingers == [0,0,0,0,1]: 
-                command = "r"#"go right"
+                command = "r" #" go right"
                 temp = command.encode("utf-8")
                 ser.write(temp)
             
