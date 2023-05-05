@@ -1,18 +1,20 @@
 import cv2
 import mediapipe as mp
 import time
-
-# 04:03:20
+import datetime
+from threading import Thread
+import serial
+ser = serial.Serial("/dev/cu.usbmodem1101", 9600)
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=2, modelComplexity=1, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=11, modelComplexity=1, detectionCon=0.5, trackCon=0.5):
         self.mode = mode
         self.maxHands = maxHands
         self.detectionCon = detectionCon
         self.trackCon = trackCon
         self.modelComplex = modelComplexity
 
-        self.mpHands = mp.solutions.hands
+        self.mpHands = mp.solutions.hands   
         self.hands = self.mpHands.Hands(self.mode, self.maxHands,self.modelComplex, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
@@ -38,20 +40,21 @@ class handDetector():
                 # print(id, cx, cy)
                 lmList.append([id, cx, cy])
                 if draw:
-                    cv2.circle(img, (cx, cy), 13, (255, 0, 255), cv2.FILLED)
+                    cv2.circle(img, (cx, cy), 7, (255, 0, 255), cv2.FILLED)
 
         return lmList
 
 
 def main():
-    tipIds = [4, 8, 12, 16, 20]
+    #4는 엄지 끝, 8은 검지 끝, 12는 중지 끝...
+    fingertips = [4, 8, 12, 16, 20]
 
     pTime = 0
     cTime = 0
-    cap = cv2.VideoCapture(0) #, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(0)
     detector = handDetector()
+    
     frames = []
-
     while True:
         success, img = cap.read()
         img = detector.findHands(img)
@@ -59,33 +62,59 @@ def main():
         if len(lmList) != 0:
             fingers = []
 
-            # 엄지
-            if lmList[tipIds[0]][1] > lmList[tipIds[0]-1][1]:
+            # 엄지 손가락
+            if lmList[fingertips[0]][1] > lmList[fingertips[0]-1][1]:
                 fingers.append(1)
+                # 펴져 있으면 리스트에 1 추가
             else:
                 fingers.append(0)
+                # 접혀 있으면 리스트에 0 추가
 
             # 나머지 손가락
             for id in range(1,5):
-                if lmList[tipIds[id]][2] < lmList[tipIds[id]-2][2]:
+                if lmList[fingertips[id]][2] < lmList[fingertips[id]-2][2]:
                     fingers.append(1)
+                    # 펴져 있으면 리스트에 1 추가
                 else:
                     fingers.append(0)
+                    # 접혀 있으면 리스트에 0 추가
+            
             print(fingers)
-            # totalFingers = fingers.count(1)
-            # print(totalFingers)
+            
+            if fingers == [0,0,0,0,0]: 
+                command = "n" # "stop"
+                temp = command.encode("utf-8")
+                ser.write(temp)
 
+            elif fingers == [0,1,0,0,0]: 
+                command = "s" # "go straight"
+                temp = command.encode("utf-8")
+                ser.write(temp) 
+
+            elif fingers == [0,1,1,0,0]: 
+                command = "b"#"go backward"
+                temp = command.encode("utf-8")
+                ser.write(temp)
+
+            elif fingers == [1,0,0,0,0]: 
+                command = "l" # "go left"
+                temp = command.encode("utf-8")
+                ser.write(temp)
+
+            elif fingers == [0,0,0,0,1]: 
+                command = "r" #" go right"
+                temp = command.encode("utf-8")
+                ser.write(temp)
+            
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
-        # cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
-
-        cv2.imshow("Image", img)
-        cv2.waitKey(1)
-                
+        
         frames.append(fps)
         
-    # print(sum(frames)/500)
+        cv2.imshow("Image", img)
+        cv2.waitKey(1)
+
 
 if __name__ == "__main__":
     main()
