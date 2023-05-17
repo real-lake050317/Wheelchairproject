@@ -19,10 +19,10 @@ void recvOneChar() { //새로운 Serial 데이터를 수신하기 위한 함수
 }
 
 void setup() {
-  Serial.begin(19200);
+  Serial.begin(9600);
 
-  analogWrite(enA, 120);
-  analogWrite(enB, 120);
+  analogWrite(enA, 10);
+  analogWrite(enB, 10);
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
   pinMode(in1, OUTPUT);
@@ -45,16 +45,15 @@ void stopMoving() {
 }
 
 void goForward() {
-
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
 }
 
 void goBackward() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
   digitalWrite(in4, HIGH);
 }
@@ -63,12 +62,12 @@ void turnLeft() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH);
+  digitalWrite(in4, LOW);
 }
 
 void turnRight() {
   digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
+  digitalWrite(in2, LOW);
   digitalWrite(in3, HIGH);
   digitalWrite(in4, LOW);
 }
